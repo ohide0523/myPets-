@@ -6,10 +6,13 @@ export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const [uid, setUid] = useState(null);
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
-  const [newPassword,setNewPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [newEmail, setNewEmail] = useState("");
+  const [items, setItems] = useState([]);
+  const [newItems, setNewItems] = useState([]);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -22,6 +25,12 @@ const ContextProvider = ({ children }) => {
       }
     });
   }, []);
+
+
+  useEffect(() => {
+    setItems(newItems);
+   
+  }, [newItems]);
 
   //googleログイン
   const googleLogin = () => {
@@ -51,7 +60,17 @@ const ContextProvider = ({ children }) => {
       });
   };
   //   emailアカウントを作成する
-  const createEmailUser = () => {
+    auth
+      .createUserWithEmailAndPassword(newEmail, newPassword)
+      .then(() => {
+        alert("アカウントを作成しました！");
+        setNewEmail("");
+        setNewPassword("");
+      })
+      .catch(() => {
+        alert("失敗しました。。。");
+      });
+
     auth.createUserWithEmailAndPassword(newEmail, newPassword).then(() => {
       alert("アカウントを作成しました！");
       setNewEmail("");
@@ -67,6 +86,27 @@ const ContextProvider = ({ children }) => {
       router.push("/Login");
     });
   };
+  // itemの取得
+  const getItems = () => {
+    
+    let newItems =[]
+    db.collectionGroup("items").onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log(doc.data())
+       newItems.push({
+           userId:doc.data().userId,
+           id:doc.data().id,
+           title:doc.data().title,
+           // img: itemURL,
+           category: doc.data().category,
+           age: doc.data().age,
+           sex: doc.data().sex,
+           content:doc.data().content
+       })
+    });
+    setItems(newItems)
+})
+  };
 
   return (
     <Context.Provider
@@ -74,6 +114,7 @@ const ContextProvider = ({ children }) => {
         googleLogin,
         emailLogin,
         createEmailUser,
+        getItems,
         logout,
         uid,
         email,
@@ -84,6 +125,8 @@ const ContextProvider = ({ children }) => {
         setNewEmail,
         newPassword,
         setNewPassword,
+        items,
+        setNewItems,
       }}
     >
       {children}
