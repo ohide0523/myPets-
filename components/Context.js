@@ -60,7 +60,6 @@ const ContextProvider = ({ children }) => {
       });
   };
   //   emailアカウントを作成する
-  const createEmailUser = () => {
     auth
       .createUserWithEmailAndPassword(newEmail, newPassword)
       .then(() => {
@@ -71,6 +70,14 @@ const ContextProvider = ({ children }) => {
       .catch(() => {
         alert("失敗しました。。。");
       });
+
+    auth.createUserWithEmailAndPassword(newEmail, newPassword).then(() => {
+      alert("アカウントを作成しました！");
+      setNewEmail("");
+      setNewPassword("");
+    }).catch(()=>{
+        alert("失敗しました。。。")
+    })
   };
 
   const logout = () => {
@@ -79,7 +86,6 @@ const ContextProvider = ({ children }) => {
       router.push("/Login");
     });
   };
-
   // itemの取得
   const getItems = () => {
     

@@ -11,6 +11,10 @@ const Top = () => {
       getItems()
   },[])
 
+  const { uid,logout } = useContext(Context);
+
+
+
   return (
     <div>
       <h1>トップページ</h1>
