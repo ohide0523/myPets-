@@ -30,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/login": [
+    "/myTool/createItem/createItem": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/login.js"
+      "static/chunks/pages/myTool/createItem/createItem.js"
+    ],
+    "/myTool/edit/[editItem]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/myTool/edit/[editItem].js"
     ]
   },
   "ampFirstPages": []

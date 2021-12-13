@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+
+const createItem = () => {
+  // 募集をかけるワンちゃんのvalue
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("");
+  const [content, setContent] = useState("");
+  const [previewImg, setPreviewImg] = useState(false);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "80%",
+        margin: "auto",
+        alignItems: "center",
+        padding: "100px",
+      }}
+    >
+      <h1>募集ページ</h1>
+
+      <input type="/file" />
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <select value={category} onChange={e=>setCategory(e.target.value)}>
+        <option>カテゴリー</option>
+        <option value="オーストラリアンシェパード">オーストラリアンシェパード</option>
+        <option　value="シーズー">シーズー</option>
+      </select>
+      <select>
+        <option value={sex} onChange={e=>setSex(e.target.value)}>性別</option>
+        <option value="メス"> メス</option>
+        <option　value="オス">オス</option>
+      </select>
+      <select value={age} onChange={e=>setAge(e.target.value)}>
+        <option>年齢</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+
+      <button>募集を確定する</button>
+    </div>
+  );
+};
+
+export default createItem;
