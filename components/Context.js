@@ -26,10 +26,8 @@ const ContextProvider = ({ children }) => {
     });
   }, []);
 
-
   useEffect(() => {
     setItems(newItems);
-   
   }, [newItems]);
 
   //googleログイン
@@ -39,8 +37,22 @@ const ContextProvider = ({ children }) => {
       const firstLogin = res.additionalUserInfo.isNewUser;
       if (firstLogin) {
         alert("初めてのユーザーのログインを確認しました！");
+        db.collection("users").doc(uid).set({
+          id: uid,
+          img: "",
+          name: "設定されていません",
+          email: "設定されていません",
+          introduce: "設定されていません",
+        });
       } else {
         alert("既存のユーザーログインを確認しました！");
+        db.collection("users").doc(uid).set({
+          id: uid,
+          img: "",
+          name: "設定されていません",
+          email: "設定されていません",
+          introduce: "設定されていません",
+        });
       }
     });
     router.push("/Top");
@@ -66,6 +78,13 @@ const ContextProvider = ({ children }) => {
         alert("アカウントを作成しました！");
         setNewEmail("");
         setNewPassword("");
+        db.collection("users").doc(uid).set({
+          id: uid,
+          img: "",
+          name: "設定されていません",
+          email: "設定されていません",
+          introduce: "設定されていません",
+        });
       })
       .catch(() => {
         alert("失敗しました。。。");
@@ -88,24 +107,39 @@ const ContextProvider = ({ children }) => {
   };
   // itemの取得
   const getItems = () => {
-    
-    let newItems =[]
-    db.collectionGroup("items").onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        console.log(doc.data())
-       newItems.push({
-           userId:doc.data().userId,
-           id:doc.data().id,
-           title:doc.data().title,
-           // img: itemURL,
-           category: doc.data().category,
-           age: doc.data().age,
-           sex: doc.data().sex,
-           content:doc.data().content
-       })
+    let newItems = [];
+    db.collectionGroup("items").onSnapshot(() => {
+      db.collectionGroup("items")
+      .orderBy("createAt","desc")
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            newItems.push({
+              userId: doc.data().userId,
+              id: doc.data().id,
+              title: doc.data().title,
+              img: doc.data().img,
+              category: doc.data().category,
+              age: doc.data().age,
+              sex: doc.data().sex,
+              content: doc.data().content,
+            });
+          });
+          setItems(newItems);
+          //   snapshot.forEach((doc) => {
+
+          //    newItems.push({
+          //        userId:doc.data().userId,
+          //        id:doc.data().id,
+          //        title:doc.data().title,
+          //        img: doc.data().img,
+          //        category: doc.data().category,
+          //        age: doc.data().age,
+          //        sex: doc.data().sex,
+          //        content:doc.data().content
+          //    })
+        });
     });
-    setItems(newItems)
-})
   };
 
   return (
