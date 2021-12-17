@@ -32,3 +32,5 @@ yarn-error.log*
 
 # vercel
 .vercel
+.next/cache/webpack/client-development/10.pack
+.git/objects/pack/pack-c0c44212c490cc7d9422d4fe6ce75e353e3470b0.pack
