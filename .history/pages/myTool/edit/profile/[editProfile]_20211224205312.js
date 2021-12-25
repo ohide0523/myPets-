@@ -144,7 +144,7 @@ const editProfile = () => {
         <div style={{ textAlign: "center" }}>
           <img
             src={editImg}
-            style={{ width: "0%", height: "300px", borderRadius: 20 }}
+            style={{ width: "80%", height: "300px", borderRadius: 20 }}
             alt="プロフィール写真"
           />
         </div>

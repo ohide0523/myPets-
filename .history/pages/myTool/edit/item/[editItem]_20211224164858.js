@@ -177,7 +177,6 @@ const editItem = () => {
         label="名前を入力してください"
         variant="standard"
         inputProps={{ maxLength: 4, pattern: "^[a-zA-Z0-9_]+$" }}
-
         value={editTitle}
         onChange={(e) => setEditTitle(e.target.value)}
         style={{ m: 1, width: "80%" }}
