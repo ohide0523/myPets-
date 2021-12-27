@@ -101,7 +101,7 @@
   </tr>
   
   <tr>
- [](https://user-images.githubusercontent.com/85104676/147460798-c0d218d5-8e5f-4693-bb39-35940afb1717.mov)
+<img width="500px"  alt="プロフィール画面2" src="https://media.giphy.com/media/e07ncmoNjQf4Engzf5/giphy.gif">
 
 
     <td>
