@@ -178,7 +178,7 @@
   - 自分がいいねしたワンちゃん → LIKE
   - 自分がフォローしたユーザー一覧 　→ FOLLOW
 
-  をそれぞれ一つのタブメニューとしてまとめました。そして、各タブメニューにもっと見るという意味での矢印を追加しました。
+  をそれぞれ一つのタブメニューとしてまとめました。そして、各タブメニューにもっと見るという意味での矢印を追加しました。<br>
   それらをクリックすることで、それぞれの全てのitem一覧を閲覧することができます。
   
   
@@ -197,19 +197,81 @@
     </td>
   </tr>
   </table>
-  
     <br>
   <h2>実装予定機能</h2>
+  
+  - ボトムメニューに自分宛てのチャットメッセージを一覧表示するalertメニューを作成する。
+  - 各ユーザーにメール通知する機能
+  - メールアドレスを変更する機能
+  - メールアドレスを変更する機能
+  - 各ページにアニメーションをつける
+
+
   <br>
   <h2>DEMO</h2>
-    <br>
+  
+  
+  <br>
   <h2>Installation/Usage</h2>
-    <br>
+ 
+ ``` 
+ $ git clone https://github.com/ohide0523/myPets-.git
+ ```
+ 
+ ```
+$ npm run dev
+ ```
+ 
+ - テストユーザー
+
+ <table>
+    <tr>
+        <th>
+            メールアドレス
+           </th>
+        <th>
+            パスワード
+        </th>
+    </tr>
+    <tr>
+        <td>
+            test_user1@gmail.com
+        </td>
+        <td>
+            123456
+        </td>
+    </tr>
+        <tr>
+        <td>
+            test_user2@gmail.com
+        </td>
+        <td>
+            123456
+        </td>
+    </tr>
+        </table>
+ <br>
   <h2>Technology</h2>
+  
+ - JavaScript Framework: Next.js()
+ - Styling: material-ui makeStyles
+ - BaaS: Firebase
+     - IDaaS: Firebase Authentication
+     - Database: Cloud Firestore
+     - Hosting: Firebase Hosting
+     - FaaS: Cloud Functions
+     - Storage: Cloud Storage
     <br>
   <h2>Requirements</h2>
+  
+  - Node.js v12.16.0
+
+
     <br>
   <h2>Author</h2>
+  
+  開発者：猪口秀之<br>
+  mail:nmkhx44342@yahoo.co.jp
   
   
   
