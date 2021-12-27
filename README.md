@@ -101,11 +101,12 @@
   </tr>
   
   <tr>
-<img width="500px"  alt="プロフィール画面2" src="https://media.giphy.com/media/e07ncmoNjQf4Engzf5/giphy.gif">
 
-
+ <td>
+   <img width="500px" alt="プロフィール編集" src="https://media.giphy.com/media/e07ncmoNjQf4Engzf5/giphy.gif">
+    </td>
     <td>
-      動画を入れる。
+   <img width="500px" alt="アイテム編集" src="https://media.giphy.com/media/BYb1A7ohdXSnkkJRyF/giphy.gif">
     </td>
   </tr>
   </table>
@@ -122,7 +123,7 @@
   
   <tr>
     <td>
-      動画を入れる。
+<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/V17xBJLaKlw9yMP4ec/giphy.gif ">
     </td>
   </tr>
   </table>
@@ -144,7 +145,7 @@
   
   <tr>
     <td>
-      動画を入れる。
+     <img width="500px" alt="チャット" src="https://media.giphy.com/media/pUksqvSPLKMpA8Idpi/giphy.gif">
     </td>
      <td>
       動画を入れる。
