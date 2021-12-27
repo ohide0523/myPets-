@@ -16,11 +16,11 @@
 </tr>
 
 <tr>
-<td>![Test Image 3](/public/Top画面%20.png)</td>
+<td><img width="1440" alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147450629-a28e9626-230a-4ed3-be88-d1c1b353bc5e.png"></td>
 </tr>
 
 <tr>
-<td>![Test Image 3](/)</td>
+<td></td>
 </tr>
 </table>
 
@@ -32,11 +32,13 @@
 </tr>
 
 <tr>
-<td>![Test Image 3](/public/プロフィール画面.png)</td>
+<td><img width="1440" alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
 </tr>
 
 <tr>
-<td>![Test Image 3](/public/プロフィール画面2.png)</td>
+<td>
+<img width="1440" alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
+</td>
 </tr>
 </table>
 
