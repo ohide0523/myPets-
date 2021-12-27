@@ -101,9 +101,9 @@
   </tr>
   
   <tr>
-    <td>
-      動画を入れる。
-    </td>
+  <td><img width="500px"  alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147460548-639c28df-606c-4adb-a2da-14282c924526.mov
+"></td>
+
     <td>
       動画を入れる。
     </td>
