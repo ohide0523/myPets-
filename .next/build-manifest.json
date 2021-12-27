@@ -20,6 +20,16 @@
       "static/chunks/main.js",
       "static/chunks/pages/Top.js"
     ],
+    "/[another]/[profile]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/[another]/[profile].js"
+    ],
+    "/[another]/anotherItem/[item]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/[another]/anotherItem/[item].js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,20 +40,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/menu/createItem/createItem": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/menu/createItem/createItem.js"
-    ],
     "/menu/myPage/profile": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/menu/myPage/profile.js"
     ],
-    "/search": [
+    "/myTool/chat/[uid]/[pid]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/search.js"
+      "static/chunks/pages/myTool/chat/[uid]/[pid].js"
     ]
   },
   "ampFirstPages": []
