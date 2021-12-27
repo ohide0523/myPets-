@@ -1,10 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-<<<<<<< HEAD
-  "/[another]/anotherItem/[item]": "pages/[another]/anotherItem/[item].js"
-=======
-  "/myTool/chat/[uid]/[pid]": "pages/myTool/chat/[uid]/[pid].js"
->>>>>>> UI
+  "/_error": "pages/_error.js"
 }

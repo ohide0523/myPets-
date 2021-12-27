@@ -15,24 +15,11 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-<<<<<<< HEAD
     "/Top": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/Top.js"
     ],
-    "/[another]/[profile]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/[another]/[profile].js"
-    ],
-    "/[another]/anotherItem/[item]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/[another]/anotherItem/[item].js"
-    ],
-=======
->>>>>>> UI
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -43,18 +30,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-<<<<<<< HEAD
+    "/menu/createItem/createItem": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/menu/createItem/createItem.js"
+    ],
     "/menu/myPage/profile": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/menu/myPage/profile.js"
     ],
-=======
->>>>>>> UI
-    "/myTool/chat/[uid]/[pid]": [
+    "/search_answer": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/myTool/chat/[uid]/[pid].js"
+      "static/chunks/pages/search_answer.js"
     ]
   },
   "ampFirstPages": []
