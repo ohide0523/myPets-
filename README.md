@@ -32,12 +32,12 @@
 </tr>
 
 <tr>
-<td><img width="1440" alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
+<td><img width="700" alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
 </tr>
 
 <tr>
 <td>
-<img width="1440" alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
+<img width="700" alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
 </td>
 </tr>
 </table>
@@ -49,7 +49,9 @@
 </tr>
 
 <tr>
-<td><img src="/検索画面.png"></td>
+<td>
+<img width="700" alt="検索画面" src="https://user-images.githubusercontent.com/85104676/147451237-ab4a5ab7-e30e-440e-8a34-9ea90145ecef.png">
+</td>
 </tr>
 
 </table>
@@ -63,8 +65,10 @@
 </tr>
 
 <tr>
-<td><img src="/Users/hideyukiinokuchi/Desktop/mypets/public/item画面.png"></td>
-<td><img src="/Users/hideyukiinokuchi/Desktop/mypets/public/item画面2.png"></td>
+<td><img width="700" alt="item画面" src="https://user-images.githubusercontent.com/85104676/147451151-88959e53-2709-4e54-ad8e-c3e43dc6839a.png"></td>
+<td>
+<img width="1440" alt="item画面2" src="https://user-images.githubusercontent.com/85104676/147451166-714890f8-7d0e-49d3-b550-d15f3d13d896.png">
+</td>
 </tr>
 
 </table>
