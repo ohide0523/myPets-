@@ -7,8 +7,7 @@
 </p>
 
 
-/Users/hideyukiinokuchi/Desktop/mypets/public/item画面2.png
-
+<h2>すべてのページ</h2>
 <table>
 <tr>
 <th>Top画面</th>
