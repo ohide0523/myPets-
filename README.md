@@ -123,7 +123,7 @@
   
   <tr>
     <td>
-<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/V17xBJLaKlw9yMP4ec/giphy.gif ">
+<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/V17xBJLaKlw9yMP4ec/giphy.gif">
     </td>
   </tr>
   </table>
