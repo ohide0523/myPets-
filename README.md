@@ -7,7 +7,9 @@
 </p>
 
 
-<h2>すべてのページ(PC版)</h2>
+<h2>すべてのページ</h2>
+- PC版
+
 <table>
 <tr>
 <th>Top画面</th>
@@ -66,6 +68,8 @@
 </tr>
 
 </table>
+
+- モバイル版
 
 <h2>ユーザーができること</h2>
 
@@ -157,6 +161,22 @@
   
   
   </table>
+  
+  <h2>実装予定機能</h2>
+  
+  <h2>DEMO</h2>
+  
+  <h2>Installation/Usage</h2>
+  
+  <h2>Technology</h2>
+  
+  <h2>Requirements</h2>
+  
+  <h2>Author</h2>
+  
+  
+  
+ 
   
   
   
