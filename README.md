@@ -6,6 +6,9 @@
 このアプリをきっかけに日本の動物殺処分を少なくすることが目的です。
 </p>
 
+
+/Users/hideyukiinokuchi/Desktop/mypets/public/item画面2.png
+
 <table>
 <tr>
 <th>Top画面</th>
