@@ -15,18 +15,6 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/Top": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Top.js"
-    ],
-
-    "/[another]/anotherItem/[item]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/[another]/anotherItem/[item].js"
-    ],
-
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -41,13 +29,21 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/menu/myPage/profile.js"
-
-
+    ],
+    "/myTool/allItems/allFollowLists": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/myTool/allItems/allFollowLists.js"
     ],
     "/myTool/allItems/allLikedItems": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/myTool/allItems/allLikedItems.js"
+    ],
+    "/myTool/allItems/allMyItems": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/myTool/allItems/allMyItems.js"
     ]
   },
   "ampFirstPages": []
