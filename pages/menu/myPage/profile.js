@@ -270,10 +270,10 @@ const profile = () => {
   //   自分がフォローしたユーザーの取得
   const getMyFollowUser = () => {
     let newItems = [];
-    db.collection("users")
-      .doc(uid)
-      .collection("followLists")
-      .onSnapshot(() => {
+    // db.collection("users")
+    //   .doc(uid)
+    //   .collection("followLists")
+    //   .onSnapshot(() => {
         db.collection("users")
           .doc(uid)
           .collection("followLists")
@@ -290,7 +290,7 @@ const profile = () => {
             });
           });
         setMyFollowUser(newItems);
-      });
+    //   });
   };
 
   const onClickAllLikedItems = () => {

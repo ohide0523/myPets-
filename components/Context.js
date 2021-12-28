@@ -139,7 +139,9 @@ const ContextProvider = ({ children }) => {
   const getItems = () => {
     let newItem = [];
 
-    db.collectionGroup("items").onSnapshot(() => {
+    // db.collectionGroup("items").onSnapshot(() => {
+      
+        
       db.collectionGroup("items")
         .orderBy("createAt", "desc")
         .get()
@@ -163,7 +165,7 @@ const ContextProvider = ({ children }) => {
 
         
         });
-    });
+    // });
   };
 
   //自分のアカウント情報の取得
@@ -193,7 +195,7 @@ const ContextProvider = ({ children }) => {
     db.collection("users")
       .doc(uid)
       .collection("likedItems")
-      .onSnapshot(() => {
+    //   .onSnapshot(() => {
         db.collection("users")
           .doc(uid)
           .collection("likedItems")
@@ -211,7 +213,7 @@ const ContextProvider = ({ children }) => {
             });
             setMyLikedItems(newItems);
           });
-      });
+    //   });
   };
 
 
