@@ -29,6 +29,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
+    ],
+    "/menu/createItem/createItem": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/menu/createItem/createItem.js"
+    ],
+    "/myTool/chat/[uid]/[pid]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/myTool/chat/[uid]/[pid].js"
     ]
   },
   "ampFirstPages": []
