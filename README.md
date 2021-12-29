@@ -99,7 +99,7 @@
   
   <tr>
     <td>
-      動画を入れる。
+      <img width="500px" alt="アイテム追加" src="https://media.giphy.com/media/O2Hv1PY9FEbPYkqxnf/giphy.gif">
     </td>
     
    
@@ -123,10 +123,10 @@
   <tr>
 
  <td>
-   <img width="500px" alt="プロフィール編集" src="https://media.giphy.com/media/e07ncmoNjQf4Engzf5/giphy.gif">
+   <img width="500px" alt="プロフィール編集" src="https://media.giphy.com/media/NQGRezFq8o7XM7uk6r/giphy.gif">
     </td>
     <td>
-   <img width="500px" alt="アイテム編集" src="https://media.giphy.com/media/BYb1A7ohdXSnkkJRyF/giphy.gif">
+   <img width="500px" alt="アイテム編集" src="https://media.giphy.com/media/IyfLI2Aph5kNFvsIRB/giphy.gif">
     </td>
   </tr>
   </table>
@@ -143,7 +143,7 @@
   
   <tr>
     <td>
-<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/V17xBJLaKlw9yMP4ec/giphy.gif">
+<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/ECuiEtDTzvpo3GocL6/giphy.gif">
     </td>
   </tr>
   </table>
@@ -153,7 +153,7 @@
 <table>
   <tr>
     <th>
-      チャット機能
+      絞り込み機能
     </th>
      <th>
       気になったワンちゃんにいいね
@@ -165,13 +165,13 @@
   
   <tr>
     <td>
-     <img width="500px" alt="チャット" src="https://media.giphy.com/media/pUksqvSPLKMpA8Idpi/giphy.gif">
+     <img width="500px" alt="絞り込み機能" src="https://media.giphy.com/media/j4BONDsDk7AnZ4XYA4/giphy.gif">
     </td>
      <td>
-      動画を入れる。
+     <img width="500px" alt="いいね機能" src="https://media.giphy.com/media/4i2rRuVffFAFov2AfD/giphy.gif"> 
     </td>
      <td>
-      動画を入れる。
+       <img width="500px" alt="フォロー機能" src="https://media.giphy.com/media/ctXCOjHz9suLsMc3uR/giphy.gif"> 
     </td>
   </tr>
   
@@ -195,21 +195,34 @@
   
   
 <table>
-  <tr>
+  <tr>  
+      <th>
+      全てのMYDOGアイテム
+    </th>
     <th>
-      MYDOG/LIKE/FOLLOWタブメニュー
+      全てのLIKEアイテム
+    </th> 
+      <th>
+      全てのFOLLOWリスト
     </th>
   </tr>
   
   <tr>
     <td>
-     <img width="500px" alt="アピールポイント" src="https://media.giphy.com/media/OjBuLb85YQPeQp5l6b/giphy.gif">
+     <img width="500px" alt="MYDOGタブメニュー" src="https://media.giphy.com/media/QmTPE4UJT56SRzCndN/giphy.gif">
+    </td>
+       <td>
+     <img width="500px" alt="LIKEタブメニュー" src="https://media.giphy.com/media/vwUu5szomgSdMkoLD3/giphy.gif">
+    </td>
+       <td>
+     <img width="500px" alt="FOLLOWタブメニュー" src="https://media.giphy.com/media/qRojcXHSuNVJLSuW0D/giphy.gif">
     </td>
   </tr>
   </table>
     <br>
   <h2>実装予定機能</h2>
   
+  - TypeScript化
   - ボトムメニューに自分宛てのチャットメッセージを一覧表示するalertメニューを作成する。
   - 各ユーザーにメール通知する機能
   - メールアドレスを変更する機能
