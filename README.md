@@ -20,7 +20,6 @@
 
 <tr>
 
-<td><img width="400px"  alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147450629-a28e9626-230a-4ed3-be88-d1c1b353bc5e.png"></td>
 
 <td><img width="500px"  alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147450629-a28e9626-230a-4ed3-be88-d1c1b353bc5e.png"></td>
 <td><img width="500" alt="ログイン画面" src="https://user-images.githubusercontent.com/85104676/147452866-972364c4-be56-41f1-800b-4d478cacb08a.png">
@@ -38,17 +37,11 @@
 
 <tr>
 
-<td><img width="400px"  alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
-
-<td>
-<img width="400px"  alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
-
 <td><img width="500px"  alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
 
 <td>
 <img width="500px"  alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
 
-</td>
 </tr>
 </table>
 
@@ -59,20 +52,8 @@
 <th>ワンちゃんの詳細画面2</th>
 </tr>
 
-<tr>
-
-<td><img width="400px"  alt="item画面" src="https://user-images.githubusercontent.com/85104676/147451151-88959e53-2709-4e54-ad8e-c3e43dc6839a.png"></td>
-<td>
-<img width="400px"  alt="item画面2" src="https://user-images.githubusercontent.com/85104676/147451166-714890f8-7d0e-49d3-b550-d15f3d13d896.png">
-
-
-<td><img></td>
-
-</tr>
 
 <tr>
-<td><img src=""></td>
-
 
 <td><img width="500px" alt="item画面" src="https://user-images.githubusercontent.com/85104676/147451151-88959e53-2709-4e54-ad8e-c3e43dc6839a.png"></td>
 <td>
@@ -92,8 +73,6 @@
 
 <tr>
 <td>
-
-<img width="400px"  alt="検索画面" src="https://user-images.githubusercontent.com/85104676/147451237-ab4a5ab7-e30e-440e-8a34-9ea90145ecef.png">
 
 <img width="500px" alt="検索画面" src="https://user-images.githubusercontent.com/85104676/147451237-ab4a5ab7-e30e-440e-8a34-9ea90145ecef.png">
 
