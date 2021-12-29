@@ -86,6 +86,27 @@
 - モバイル版
 
 
+<table>
+<tr>
+<th>トップ画面</th>
+    <th>プロフィール画面</th>
+</tr>
+
+<tr>
+<td>
+
+<img width="283" alt="トップ画面" src="https://user-images.githubusercontent.com/85104676/147643535-b576a9e0-ccf9-4ff1-bb27-3e8174bdf375.png">
+    </td>
+    <td>
+<img width="278" alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147643540-8f69cae5-cc11-49ec-b3b6-e96c4eda728d.png">
+
+</td>
+</tr>
+
+</table>
+
+
+
 <br>
 <h2>ユーザーができること</h2>
 
