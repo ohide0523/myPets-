@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/[another]/[profile]": [
+    "/Top": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/[another]/[profile].js"
+      "static/chunks/pages/Top.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -34,6 +34,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/menu/createItem/createItem.js"
+    ],
+    "/menu/myPage/profile": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/menu/myPage/profile.js"
     ],
     "/myTool/chat/[uid]/[pid]": [
       "static/chunks/webpack.js",
