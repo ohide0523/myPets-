@@ -175,7 +175,7 @@ const anotherProfile = () => {
           id: profile,
           img: doc.data().img,
           name: doc.data().name,
-          introduce:doc.data().introduce
+          introduce:doc.data().introduce,
           followerCount: doc.data().followerCount,
         });
         setAnotherUser(newItem);
