@@ -206,11 +206,12 @@ const item = () => {
       userId: userId,
       itemRef: anotherItemRef,
       like: true, //ここは、likeの状態を表すもの。後で、likeのstateで管理する。
-      likeCount: firebase.firestore.FieldValue.increment(+1),
+      likeCount:firebase.firestore.FieldValue.increment(+1),
     });
 
     batch.update(myUserRef, {
       createAt: firebase.firestore.FieldValue.serverTimestamp(),
+     
     });
     await batch.commit();
     getAnotherItem();
@@ -392,16 +393,10 @@ const item = () => {
                         </Link>
 
                         <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            minWidth: "auto",
-                          }}
+                          style={{ display: "flex", flexDirection: "column",minWidth:"auto" }}
                         >
                           <div style={{ display: "flex" }}>
-                            <AccountCircle
-                              style={{ marginRight: 5, marginBottom: 10 }}
-                            />
+                            <AccountCircle style={{ marginRight: 5,marginBottom:10 }}/>
                             {user.name}
                           </div>
                           <div style={{ display: "flex" }}>

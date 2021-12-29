@@ -19,13 +19,12 @@
 </tr>
 
 <tr>
-<<<<<<< HEAD
-<td><img width="400px"  alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147450629-a28e9626-230a-4ed3-be88-d1c1b353bc5e.png"></td>
-=======
+
+
 <td><img width="500px"  alt="Top画面 " src="https://user-images.githubusercontent.com/85104676/147450629-a28e9626-230a-4ed3-be88-d1c1b353bc5e.png"></td>
 <td><img width="500" alt="ログイン画面" src="https://user-images.githubusercontent.com/85104676/147452866-972364c4-be56-41f1-800b-4d478cacb08a.png">
   </td>
->>>>>>> main
+
 </tr>
 
 </table>
@@ -37,18 +36,12 @@
 </tr>
 
 <tr>
-<<<<<<< HEAD
-<td><img width="400px"  alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
 
-<td>
-<img width="400px"  alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
-=======
 <td><img width="500px"  alt="プロフィール画面" src="https://user-images.githubusercontent.com/85104676/147450770-9b754ed5-ff85-4339-868a-9c5cc83d37f6.png"></td>
 
 <td>
 <img width="500px"  alt="プロフィール画面2" src="https://user-images.githubusercontent.com/85104676/147450773-7dc73720-5f80-4032-ad7d-3463c900d0e0.png">
->>>>>>> main
-</td>
+
 </tr>
 </table>
 
@@ -59,27 +52,15 @@
 <th>ワンちゃんの詳細画面2</th>
 </tr>
 
-<tr>
-<<<<<<< HEAD
-<td><img width="400px"  alt="item画面" src="https://user-images.githubusercontent.com/85104676/147451151-88959e53-2709-4e54-ad8e-c3e43dc6839a.png"></td>
-<td>
-<img width="400px"  alt="item画面2" src="https://user-images.githubusercontent.com/85104676/147451166-714890f8-7d0e-49d3-b550-d15f3d13d896.png">
-=======
-<<<<<<< HEAD
-<td><img></td>
-
-</tr>
 
 <tr>
-<td><img src=""></td>
 
-=======
 <td><img width="500px" alt="item画面" src="https://user-images.githubusercontent.com/85104676/147451151-88959e53-2709-4e54-ad8e-c3e43dc6839a.png"></td>
 <td>
 <img width="500px" alt="item画面2" src="https://user-images.githubusercontent.com/85104676/147451166-714890f8-7d0e-49d3-b550-d15f3d13d896.png">
->>>>>>> main
+
 </td>
->>>>>>> e0890ec59a78231be7f7c444a98a45ac1bd315bf
+
 </tr>
 
 </table>
@@ -92,11 +73,9 @@
 
 <tr>
 <td>
-<<<<<<< HEAD
-<img width="400px"  alt="検索画面" src="https://user-images.githubusercontent.com/85104676/147451237-ab4a5ab7-e30e-440e-8a34-9ea90145ecef.png">
-=======
+
 <img width="500px" alt="検索画面" src="https://user-images.githubusercontent.com/85104676/147451237-ab4a5ab7-e30e-440e-8a34-9ea90145ecef.png">
->>>>>>> main
+
 </td>
 </tr>
 
@@ -120,7 +99,7 @@
   
   <tr>
     <td>
-      動画を入れる。
+      <img width="500px" alt="アイテム追加" src="https://media.giphy.com/media/O2Hv1PY9FEbPYkqxnf/giphy.gif">
     </td>
     
    
@@ -144,10 +123,10 @@
   <tr>
 
  <td>
-   <img width="500px" alt="プロフィール編集" src="https://media.giphy.com/media/e07ncmoNjQf4Engzf5/giphy.gif">
+   <img width="500px" alt="プロフィール編集" src="https://media.giphy.com/media/NQGRezFq8o7XM7uk6r/giphy.gif">
     </td>
     <td>
-   <img width="500px" alt="アイテム編集" src="https://media.giphy.com/media/BYb1A7ohdXSnkkJRyF/giphy.gif">
+   <img width="500px" alt="アイテム編集" src="https://media.giphy.com/media/IyfLI2Aph5kNFvsIRB/giphy.gif">
     </td>
   </tr>
   </table>
@@ -164,7 +143,7 @@
   
   <tr>
     <td>
-<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/V17xBJLaKlw9yMP4ec/giphy.gif">
+<img width="500px" alt="itemの削除" src="https://media.giphy.com/media/ECuiEtDTzvpo3GocL6/giphy.gif">
     </td>
   </tr>
   </table>
@@ -174,7 +153,7 @@
 <table>
   <tr>
     <th>
-      チャット機能
+      絞り込み機能
     </th>
      <th>
       気になったワンちゃんにいいね
@@ -186,13 +165,13 @@
   
   <tr>
     <td>
-     <img width="500px" alt="チャット" src="https://media.giphy.com/media/pUksqvSPLKMpA8Idpi/giphy.gif">
+     <img width="500px" alt="絞り込み機能" src="https://media.giphy.com/media/j4BONDsDk7AnZ4XYA4/giphy.gif">
     </td>
      <td>
-      動画を入れる。
+     <img width="500px" alt="いいね機能" src="https://media.giphy.com/media/4i2rRuVffFAFov2AfD/giphy.gif"> 
     </td>
      <td>
-      動画を入れる。
+       <img width="500px" alt="フォロー機能" src="https://media.giphy.com/media/ctXCOjHz9suLsMc3uR/giphy.gif"> 
     </td>
   </tr>
   
@@ -216,21 +195,34 @@
   
   
 <table>
-  <tr>
+  <tr>  
+      <th>
+      全てのMYDOGアイテム
+    </th>
     <th>
-      MYDOG/LIKE/FOLLOWタブメニュー
+      全てのLIKEアイテム
+    </th> 
+      <th>
+      全てのFOLLOWリスト
     </th>
   </tr>
   
   <tr>
     <td>
-     <img width="500px" alt="アピールポイント" src="https://media.giphy.com/media/OjBuLb85YQPeQp5l6b/giphy.gif">
+     <img width="500px" alt="MYDOGタブメニュー" src="https://media.giphy.com/media/QmTPE4UJT56SRzCndN/giphy.gif">
+    </td>
+       <td>
+     <img width="500px" alt="LIKEタブメニュー" src="https://media.giphy.com/media/vwUu5szomgSdMkoLD3/giphy.gif">
+    </td>
+       <td>
+     <img width="500px" alt="FOLLOWタブメニュー" src="https://media.giphy.com/media/qRojcXHSuNVJLSuW0D/giphy.gif">
     </td>
   </tr>
   </table>
     <br>
   <h2>実装予定機能</h2>
   
+  - TypeScript化
   - ボトムメニューに自分宛てのチャットメッセージを一覧表示するalertメニューを作成する。
   - 各ユーザーにメール通知する機能
   - メールアドレスを変更する機能
