@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import { Context } from "../components/Context";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -41,10 +39,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const login = () => {
-  const router = useRouter();
+const Login = () => {
+  
+  const classes = useStyles();
+
   const {
-    uid,
     email,
     setEmail,
     password,
@@ -59,7 +58,6 @@ const login = () => {
     anonymouslyLogin,
   } = useContext(Context);
 
-  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -149,4 +147,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

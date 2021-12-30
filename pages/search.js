@@ -7,20 +7,9 @@ import Search_answer from "./search_answer";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Switch from "@material-ui/core/Switch";
-import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
-import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
@@ -52,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "80%",
     margin: "auto",
-    marginBottom:0,
+    marginBottom: 0,
     marginTop: 100,
-    
+
     [theme.breakpoints.up("md")]: {
       textAlign: "center",
       display: "flex",
@@ -87,10 +76,10 @@ const Search = () => {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
 
-  const [isSearch,setIsSearch] = useState(false)
+  const [isSearch, setIsSearch] = useState(false);
 
   //   const [searchItems, setSearchItems] = useState([]);
-  const {setSearchItems } = useContext(Context);
+  const { setSearchItems } = useContext(Context);
 
   const handleSearch = () => {
     if (category == "" || sort == "") {
@@ -119,7 +108,7 @@ const Search = () => {
             });
           });
           setSearchItems(newItem);
-          setIsSearch(true)
+          setIsSearch(true);
         });
 
       <Search_answer isSearch={isSearch} />;
@@ -148,7 +137,7 @@ const Search = () => {
             });
           });
           setSearchItems(newItem);
-          setIsSearch(true)
+          setIsSearch(true);
         });
       <Search_answer isSearch={isSearch} />;
       router.push("/search_answer");
@@ -157,9 +146,8 @@ const Search = () => {
   };
 
   return (
-   
-    <main >
-         <div className={classes.root}>
+    <main>
+      <div className={classes.root}>
         <h1>絞り込み検索</h1>
         <FormControl className={classes.formControl}>
           <InputLabel>カテゴリー</InputLabel>
@@ -202,8 +190,6 @@ const Search = () => {
         </Button>
       </div>
     </main>
-    
-  
   );
 };
 

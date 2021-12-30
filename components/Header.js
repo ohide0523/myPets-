@@ -1,12 +1,7 @@
 import { useRouter } from "next/router";
-import React, { useState, useEffect, useContext } from "react";
-import Head from "next/head";
+import React, {  useContext } from "react";
 import Link from "next/link";
-import { Context } from "../components/Context";
-import { db, auth } from "../components/firebase";
-
-import Styles from "../styles/Home.module.css";
-
+import { Context } from "./Context";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -60,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const router = useRouter();
-  const { uid, anonymouslyLogin,isLogin } = useContext(Context);
+  const {anonymouslyLogin,isLogin } = useContext(Context);
 
   const search_open = () => {
     
@@ -72,7 +67,7 @@ const Header = () => {
       <header className={classes.header}>
         <AppBar position="fixed">
           <Toolbar className={classes.toolbar}>
-            <Link href="/Top">
+            <Link href="/Top" passHref>
               <IconButton
                 edge="start"
                 className={classes.menuButton}

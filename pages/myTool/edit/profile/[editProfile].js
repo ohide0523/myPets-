@@ -1,26 +1,19 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
-import React, { useState, useEffect, useContext } from "react";
-import Styles from "../../../../styles/Home.module.css";
+import React, { useState, useEffect, useContext ,useCallback} from "react";
 
 // firebase関連
 import firebase from "@firebase/app";
 import "@firebase/storage";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import FormControl from "@material-ui/core/FormControl";
+
 import TextField from "@material-ui/core/TextField";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import { db } from "../../../../components/firebase";
 import { Context } from "../../../../components/Context";
 import Avatar from "@material-ui/core/Avatar";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     width: "80%",
     margin: "auto",
-    paddingTop:50,
+    paddingTop: 50,
     alignItems: "center",
 
     paddingBottom: 100,
@@ -43,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
   userIcon: {
     width: 150,
     height: 150,
-   
   },
   formControl: {
     margin: theme.spacing(1),
@@ -66,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const editProfile = () => {
+const EditProfile = () => {
   const classes = useStyles();
   const router = useRouter();
 
@@ -74,17 +66,11 @@ const editProfile = () => {
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
   const [editIntroduce, setEditIntroduce] = useState("");
-  const [profileData, setProfileData] = useState([]);
 
   const { uid } = useContext(Context);
 
-  useEffect(() => {
-    if (uid) {
-      getMyProfileData();
-    }
-  }, [uid]);
-
-  const getMyProfileData = () => {
+  
+  const getMyProfileData = useCallback(() => {
     db.collection("users")
       .doc(uid)
       .get()
@@ -94,7 +80,7 @@ const editProfile = () => {
         setEditEmail(doc.data().email);
         setEditIntroduce(doc.data().introduce);
       });
-  };
+  },[uid]);
 
   //写真の登録
   const uploadPhoto = (e) => {
@@ -142,21 +128,27 @@ const editProfile = () => {
       });
   };
 
+
+  useEffect(() => {
+    if (uid) {
+      getMyProfileData();
+    }
+  }, [uid, getMyProfileData]);
+
+
   return (
     <main className={classes.root}>
       <h1>編集ページ</h1>
       <div style={{ textAlign: "center" }}>
-      <Avatar
-              alt="アバター画像"
-              src={editImg}
-              className={classes.userIcon}
-              alt="プロフィール写真"
-            />
+        <Avatar
+          src={editImg}
+          className={classes.userIcon}
+          alt="プロフィール写真"
+        />
       </div>
       <input
         accept="image/*"
         style={{ display: "none" }}
-        id="icon-button-file"
         type="file"
         onChange={uploadPhoto}
       />
@@ -213,4 +205,4 @@ const editProfile = () => {
   );
 };
 
-export default editProfile;
+export default EditProfile;

@@ -1,5 +1,21 @@
 {
+  "/Top": "pages/Top.html",
+  "/[another]/[profile]": "pages/[another]/[profile].html",
+  "/[another]/anotherItem/[item]": "pages/[another]/anotherItem/[item].html",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js"
+  "/": "pages/index.html",
+  "/login": "pages/login.html",
+  "/menu/createItem/createItem": "pages/menu/createItem/createItem.html",
+  "/menu/myPage/profile": "pages/menu/myPage/profile.html",
+  "/myTool/allItems/allFollowLists": "pages/myTool/allItems/allFollowLists.html",
+  "/myTool/allItems/allLikedItems": "pages/myTool/allItems/allLikedItems.html",
+  "/myTool/allItems/allMyItems": "pages/myTool/allItems/allMyItems.html",
+  "/myTool/chat/[uid]/[pid]": "pages/myTool/chat/[uid]/[pid].html",
+  "/myTool/edit/item/[editItem]": "pages/myTool/edit/item/[editItem].html",
+  "/myTool/edit/profile/[editProfile]": "pages/myTool/edit/profile/[editProfile].html",
+  "/search": "pages/search.html",
+  "/search_answer": "pages/search_answer.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }

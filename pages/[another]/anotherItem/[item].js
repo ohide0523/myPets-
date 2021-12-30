@@ -1,5 +1,6 @@
 import Link from "next/link";
-import React, { useState, useEffect, useContext } from "react";
+import Image from "next/image";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { useRouter } from "next/router";
 import { db } from "../../../components/firebase";
 import { Context } from "../../../components/Context";
@@ -15,9 +16,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
-import PetsIcon from "@material-ui/icons/Pets";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 
@@ -116,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const item = () => {
+const Item = () => {
   const [like, setLike] = useState(false);
   const [anotherItem, setAnotherItem] = useState([]);
   const [anotherUser, setAnotherUser] = useState([]);
@@ -125,19 +124,9 @@ const item = () => {
   const { uid } = useContext(Context);
   const classes = useStyles();
 
-  useEffect(() => {
-    if (another && item) {
-      console.log("発火");
-      getAnotherItem();
-      getAnotherUser();
-    }
-    if (another && item && uid) {
-      getLike();
-    }
-  }, [another, item, uid]);
-
+  
   //他人のユーザー情報の取得
-  const getAnotherUser = () => {
+  const getAnotherUser = useCallback(() => {
     let newItem = [];
 
     db.collection("users")
@@ -152,10 +141,10 @@ const item = () => {
         });
         setAnotherUser(newItem);
       });
-  };
+  }, [another]);
 
   //他人のユーザーの持つitemの取得
-  const getAnotherItem = () => {
+  const getAnotherItem = useCallback(() => {
     let newItem = [];
     db.collection("users")
       .doc(another)
@@ -175,7 +164,7 @@ const item = () => {
         });
         setAnotherItem(newItem);
       });
-  };
+  }, [another, item]);
 
   //  いいねする機能
   const addLikedItem = async (userId, itemId, img, title, count) => {
@@ -238,7 +227,7 @@ const item = () => {
   };
 
   //各itemのlikeの状態を取得
-  const getLike = () => {
+  const getLike = useCallback(() => {
     db.collection("users")
       .doc(uid)
       .collection("likedItems")
@@ -264,7 +253,18 @@ const item = () => {
           }
         });
       });
-  };
+  }, [uid, item]);
+
+  useEffect(() => {
+    if (another && item) {
+      getAnotherItem();
+      getAnotherUser();
+    }
+    if (another && item && uid) {
+      getLike();
+    }
+  }, [another, item, uid, getAnotherItem, getAnotherUser, getLike]);
+
 
   return (
     <div className={Styles.another_item_page_container}>
@@ -273,7 +273,7 @@ const item = () => {
         anotherItem.map((item, index) => (
           <div key={index}>
             <Paper elevation={5} className={classes.root}>
-              <img
+              <Image
                 src={item.img}
                 alt="ワンちゃんの画像"
                 className={classes.img}
@@ -307,6 +307,7 @@ const item = () => {
                   <Link
                     href="/myTool/edit/item/[editItem]"
                     as={`/myTool/edit/item/${item.id}`}
+                    passHref
                   >
                     <Button
                       variant="outlined"
@@ -382,6 +383,7 @@ const item = () => {
                         <Link
                           href="/[another]/[profile]"
                           as={`/profile/${user.id}`}
+                          passHref
                         >
                           <Avatar
                             alt="アバター画像"
@@ -420,4 +422,4 @@ const item = () => {
   );
 };
 
-export default item;
+export default Item;

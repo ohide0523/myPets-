@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext,useCallback } from "react";
 import { db } from "../../../components/firebase";
 import { Context } from "../../../components/Context";
 
@@ -8,7 +8,6 @@ import { Context } from "../../../components/Context";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -81,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
   name: {
     width: "100%",
     paddingBottom: 40,
+    
   },
   tab: {
     backgroundColor: theme.palette.background.paper,
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     width: "100%",
-    textAlign: "center",
+    
     paddingTop: 100,
     background: "#FFFFCC",
     paddingBottom: 250,
@@ -176,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     position: "absolute",
-    top: 110,
+    top: 105,
     left: 5,
     background: "#CEF9DC",
     padding: "2px 10px 2px 7px",
@@ -188,6 +188,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   introduce: {
+    textAlign:"center",
     margin: theme.spacing(1),
     width: "100%",
     height: theme.spacing(30),
@@ -204,7 +205,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const profile = () => {
+const Profile = () => {
   const {
     uid,
     getMyUser,
@@ -223,17 +224,9 @@ const profile = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
-  useEffect(() => {
-    if (uid) {
-      getMyUser();
-      getMyItems();
-      getMyLikedItems();
-      getMyFollowUser();
-    }
-  }, [uid]);
-
+ 
   // 自分の募集したitemの取得
-  const getMyItems = () => {
+  const getMyItems = useCallback(() => {
     let newItems = [];
     db.collection("users")
       .doc(uid)
@@ -260,10 +253,10 @@ const profile = () => {
             setMyItems(newItems);
           });
       });
-  };
+  },[uid,setMyItems]);
 
   //   自分がフォローしたユーザーの取得
-  const getMyFollowUser = () => {
+  const getMyFollowUser = useCallback(() => {
     let newItems = [];
     db.collection("users")
       .doc(uid)
@@ -281,7 +274,7 @@ const profile = () => {
         });
       });
     setMyFollowUser(newItems);
-  };
+  },[uid,setMyFollowUser]);
 
   const onClickAllMyItems = () => {
     router.push("/myTool/allItems/allMyItems");
@@ -302,6 +295,17 @@ const profile = () => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
+
+  useEffect(() => {
+    if (uid) {
+      getMyUser();
+      getMyItems();
+      getMyLikedItems();
+      getMyFollowUser();
+    }
+  }, [uid,getMyUser,getMyItems,getMyLikedItems,getMyFollowUser]);
+
 
   return (
     <main className={classes.root}>
@@ -344,6 +348,7 @@ const profile = () => {
             <Link
               href="/myTool/edit/profile/[editProfile]"
               as={`/myTool/edit/profile/editProfile`}
+              passHref
             >
               <Button
                 variant="outlined"
@@ -408,6 +413,7 @@ const profile = () => {
                       <Link
                         href="/[another]/anotherItem/[editItem]"
                         as={`/${item.userId}/anotherItem/${item.id}`}
+                        passHref
                       >
                         <Avatar
                           alt="アバター画像"
@@ -455,6 +461,7 @@ const profile = () => {
                       <Link
                         href="/[another]/anotherItem/[item]"
                         as={`/${item.userId}/anotherItem/${item.id}`}
+                        passHref
                       >
                         <Avatar
                           alt="アバター画像"
@@ -502,6 +509,7 @@ const profile = () => {
                       <Link
                         href="/[another]/[profile]"
                         as={`/profile/${item.followUser}`}
+                        passHref
                       >
                         <Avatar
                           alt="アバター画像"
@@ -538,4 +546,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

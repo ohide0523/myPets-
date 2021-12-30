@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
+import Image from "next/image"
 import React, { useState, useContext } from "react";
 import { Context } from "../../../components/Context";
 import { db } from "../../../components/firebase";
 import firebase from "@firebase/app";
 import "@firebase/storage";
-import Styles from "../../../styles/Home.module.css";
 
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import FormControl from "@material-ui/core/FormControl";
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom:100,
     paddingTop: 50,
     alignItems: "center",
-    background:"#FFFFCC",
+    
     [theme.breakpoints.up("md")]: {
       width: "40%",
       marginTop: "50px",
@@ -63,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const createItem = () => {
+const CreateItem = () => {
   // 募集をかけるワンちゃんのvalue
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -74,11 +73,11 @@ const createItem = () => {
   const [previewImg, setPreviewImg] = useState("");
   const classes = useStyles();
 
-  const { uid, setNewItems, getItems } = useContext(Context);
+  const { uid} = useContext(Context);
   const router = useRouter();
 
   //写真の登録
-  const uploadPhoto = (e) => {
+  const UploadPhoto = (e) => {
     const storageRef = firebase.storage().ref();
     const file = e.target.files;
     let blob = new Blob(file, { type: "images/jpeg" });
@@ -178,16 +177,17 @@ const createItem = () => {
   };
 
   return (
-    <div style={{background:"#FFFFCC"}}>
+    <div >
 
     <main className={classes.root}>
       <h1>募集ページ</h1>
       <div style={{ textAlign: "center" }}>
         {previewImg && (
-          <img
+          <Image
           src={itemImg}
           style={{ width: "90%", height: "200px", borderRadius: 10 }}
           onClick={onClickPhotoDelete}
+          alt="ワンちゃんの写真"
           />
           )}
       </div>
@@ -196,7 +196,7 @@ const createItem = () => {
         style={{ display: "none" }}
         id="icon-button-file"
         type="file"
-        onChange={uploadPhoto}
+        onChange={UploadPhoto}
         />
       <label htmlFor="icon-button-file">
         <IconButton
@@ -292,4 +292,4 @@ const createItem = () => {
   );
 };
 
-export default createItem;
+export default CreateItem;

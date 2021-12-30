@@ -1,15 +1,14 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState, useContext } from "react";
+import Image from 'next/image'
+import React, { useEffect, useState, useContext ,useCallback} from "react";
 import { Context } from "../../../../components/Context";
 import { db } from "../../../../components/firebase";
-import Styles from "../../../../styles/Home.module.css";
 
 // firebase関連
 import firebase from "@firebase/app";
 import "@firebase/storage";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import FormControl from "@material-ui/core/FormControl";
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     height: "auto",
     margin: "auto",
-    paddingTop:50,
+    paddingTop: 50,
     alignItems: "center",
 
     [theme.breakpoints.up("md")]: {
@@ -37,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     width: "100%",
-    minHeight:150,
+    minHeight: 150,
     borderRadius: 20,
   },
   textField: {
@@ -62,11 +61,11 @@ const useStyles = makeStyles((theme) => ({
   delete_button: {
     width: "100%",
     marginTop: 15,
-    marginBottom:theme.spacing(10)
+    marginBottom: theme.spacing(10),
   },
 }));
 
-const editItem = () => {
+const EditItem = () => {
   const [editItemImg, setEditItemImg] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editCategory, setEditCategory] = useState("");
@@ -79,13 +78,9 @@ const editItem = () => {
   const { editItem } = router.query;
   const classes = useStyles();
 
-  useEffect(() => {
-    if (uid && editItem) {
-      getEditData();
-    }
-  }, [uid, editItem]);
+ 
 
-  const getEditData = () => {
+  const getEditData = useCallback(() => {
     db.collection("users")
       .doc(uid)
       .collection("items")
@@ -99,7 +94,7 @@ const editItem = () => {
         setEditSex(doc.data().sex);
         setEditContent(doc.data().content);
       });
-  };
+  },[uid,editItem]);
 
   //写真の登録
   const uploadPhoto = (e) => {
@@ -175,11 +170,17 @@ const editItem = () => {
     }
   };
 
+  useEffect(() => {
+    if (uid && editItem) {
+      getEditData();
+    }
+  }, [uid, editItem,getEditData]);
+
   return (
     <main className={classes.root}>
       <h1>編集ページ</h1>
       <div style={{ textAlign: "center" }}>
-        <img src={editItemImg} className={classes.img} alt="ワンちゃんの写真" />
+        <Image src={editItemImg} className={classes.img} alt="ワンちゃんの写真" />
       </div>
       <input
         accept="image/*"
@@ -248,7 +249,6 @@ const editItem = () => {
           onChange={(e) => setEditAge(e.target.value)}
           label="年齢"
         >
-        
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
           <MenuItem value={3}>3</MenuItem>
@@ -288,4 +288,4 @@ const editItem = () => {
   );
 };
 
-export default editItem;
+export default EditItem;

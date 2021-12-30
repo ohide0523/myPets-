@@ -1,14 +1,11 @@
 import { useRouter } from "next/router";
-import React, {useEffect,useContext} from "react";
-import Head from "next/head";
-import Link from "next/link";
-import { Context } from "../components/Context";
+import React, {useContext} from "react";
+import { Context } from "./Context";
 
 
 
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
-
 import HomeIcon from "@material-ui/icons/Home";
 import PetsIcon from "@material-ui/icons/Pets";
 import PersonIcon from "@material-ui/icons/Person";
@@ -107,15 +104,7 @@ const {uid} = useContext(Context)
               </Tooltip>
           
 
-            {/* <Link href="/menu/alert/alert">
-              <Tooltip title="通知" arrow>
-                <BottomNavigationAction
-                  label="お知らせ"
-                  value="alert"
-                  icon={<NotificationsActiveIcon />}
-                />
-              </Tooltip>
-            </Link> */}
+       
 
           
               <Tooltip title="里親を募集する" arrow>

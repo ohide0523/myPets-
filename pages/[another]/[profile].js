@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext,useCallback } from "react";
 import firebase from "@firebase/app";
 import { db } from "../../components/firebase";
 
@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const anotherProfile = () => {
+const AnotherProfile = () => {
   const [follow, setFollow] = useState(false);
   const [anotherUser, setAnotherUser] = useState([]);
   const router = useRouter();
@@ -86,17 +86,10 @@ const anotherProfile = () => {
   const classes = useStyles();
   const { uid } = useContext(Context);
 
-  useEffect(() => {
-    if (profile) {
-      getAnotherUser();
-    }
-    if (profile && uid) {
-      getFollow();
-    }
-  }, [profile, uid]);
+ 
 
   // フォローボタンの状態の取得
-  const getFollow = () => {
+  const getFollow = useCallback(() => {
     db.collection("users")
       .doc(uid)
       .collection("followLists")
@@ -111,7 +104,7 @@ const anotherProfile = () => {
           }
         });
       });
-  };
+  },[uid,profile]);
 
   // フォローする機能
   const onClickFollow = async (id, name, img, followerCount) => {
@@ -171,7 +164,7 @@ const anotherProfile = () => {
   };
 
   // 他人のユーザーの取得
-  const getAnotherUser = () => {
+  const getAnotherUser = useCallback(() => {
     let newItem = [];
 
     db.collection("users")
@@ -187,7 +180,17 @@ const anotherProfile = () => {
         });
         setAnotherUser(newItem);
       });
-  };
+  },[profile]);
+
+
+  useEffect(() => {
+    if (profile) {
+      getAnotherUser();
+    }
+    if (profile && uid) {
+      getFollow();
+    }
+  }, [profile, uid,getAnotherUser,getFollow]);
 
   return (
     <main className={classes.root}>
@@ -259,6 +262,7 @@ const anotherProfile = () => {
             <Link
               href="/myTool/chat/[uid]/[pid]"
               as={`/myTool/chat/${uid}/${user.id}`}
+              passHref
             >
               <Button
                 variant="contained"
@@ -279,4 +283,4 @@ const anotherProfile = () => {
   );
 };
 
-export default anotherProfile;
+export default AnotherProfile;
