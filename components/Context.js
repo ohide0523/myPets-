@@ -80,9 +80,11 @@ const ContextProvider = ({ children }) => {
           email: "設定されていません",
           introduce: "設定されていません",
         });
+        setIsLogin(true);
       } else {
         alert("既存のユーザーログインを確認しました！");
         router.push("/Top");
+        setIsLogin(true);
       }
     });
   };

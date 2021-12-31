@@ -134,6 +134,7 @@ const Search = () => {
               age: doc.data().age,
               sex: doc.data().sex,
               content: doc.data().content,
+              likeCount:doc.data().likeCount
             });
           });
           setSearchItems(newItem);
