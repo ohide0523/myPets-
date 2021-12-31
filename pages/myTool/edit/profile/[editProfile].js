@@ -67,7 +67,7 @@ const EditProfile = () => {
   const [editEmail, setEditEmail] = useState("");
   const [editIntroduce, setEditIntroduce] = useState("");
 
-  const { uid } = useContext(Context);
+  const { uid, } = useContext(Context);
 
   
   const getMyProfileData = () => {

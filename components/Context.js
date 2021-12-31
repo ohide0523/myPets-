@@ -19,6 +19,30 @@ const ContextProvider = ({ children }) => {
   const [myLikedItems, setMyLikedItems] = useState([]);
   const [myFollowUser, setMyFollowUser] = useState([]);
 
+
+  // 犬の情報
+  // カテゴリー
+  const category_dog = {
+    a:"オーストラリアンシェパード",
+    b:"ボーダーコリー",
+    c:"シーズー",
+    d:"柴犬"
+  }
+
+  // 性別
+  const sex = {
+    a:"メス",
+    b:"オス"
+  }
+
+
+// 絞り込みに必要なデータ
+// 並べ替え
+  const sort_dog={
+    a:"おまかせ",
+    b:"新しく追加された順"
+  }
+
   const router = useRouter();
 
   useEffect(() => {
@@ -37,6 +61,17 @@ const ContextProvider = ({ children }) => {
       setIsLogin(true);
     }
   }, [uid]);
+
+
+// Topページに遷移する処理
+  const onClickTop = () => {
+    if (uid) {
+      router.push("/Top");
+    } else {
+      alert("ログインしてください。。");
+    }
+  };
+
 
   // 匿名ログイン
   const anonymouslyLogin = () => {
@@ -209,6 +244,7 @@ const ContextProvider = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        onClickTop,
         getMyLikedItems,
         anonymouslyLogin,
         googleLogin,
@@ -241,6 +277,9 @@ const ContextProvider = ({ children }) => {
         setMyFollowUser,
         searchItems,
         setSearchItems,
+        category_dog,
+        sort_dog,
+        sex,
       }}
     >
       {children}

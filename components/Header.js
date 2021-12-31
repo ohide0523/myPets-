@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import Link from "next/link";
 import { Context } from "./Context";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -50,27 +49,32 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const router = useRouter();
-  const { anonymouslyLogin, isLogin } = useContext(Context);
+  const { anonymouslyLogin, isLogin, onClickTop } = useContext(Context);
 
   const search_open = () => {
-    router.push("/search");
+    if(isLogin){
+      
+      router.push("/search");
+    }else{
+      alert("ログインしてください。。")
+      return;
+    }
   };
 
   return (
     <header className={classes.header}>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
-          <Link href="/Top" passHref>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              MyPets!
-            </IconButton>
-          </Link>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+            onClick={onClickTop}
+          >
+            MyPets!
+          </IconButton>
+
           <Typography
             className={classes.title}
             variant="h5"

@@ -48,16 +48,9 @@ const useStyles = makeStyles((theme) => ({
 function Footer() {
   const router = useRouter();
   const classes = useStyles();
-const {uid} = useContext(Context)
+const {uid,onClickTop} = useContext(Context)
 
 
-  const onClickTop = () => {
-    if (uid) {
-      router.push("/Top");
-    } else {
-      alert("ログインしてください。。");
-    }
-  };
   const onClickCreateItem = () => {
     if (uid) {
       router.push("/menu/createItem/createItem");

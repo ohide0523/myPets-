@@ -79,7 +79,7 @@ const Search = () => {
   const [isSearch, setIsSearch] = useState(false);
 
   //   const [searchItems, setSearchItems] = useState([]);
-  const { setSearchItems } = useContext(Context);
+  const { setSearchItems,category_dog,sort_dog} = useContext(Context);
 
   const handleSearch = () => {
     if (category == "" || sort == "") {
@@ -87,7 +87,7 @@ const Search = () => {
       return;
     }
 
-    if (category && sort == "おまかせ") {
+    if (category && sort == sort_dog.a) {
       let newItem = [];
      
       db.collectionGroup("items")
@@ -116,7 +116,7 @@ const Search = () => {
       return;
     }
 
-    if (category && sort == "newItem") {
+    if (category && sort == sort_dog.b) {
       let newItem = [];
       db.collectionGroup("items")
         .where("category", "==", category)
@@ -144,6 +144,8 @@ const Search = () => {
     }
   };
 
+
+
   return (
     <main>
       <div className={classes.root}>
@@ -157,12 +159,12 @@ const Search = () => {
             input={<Input id="demo-dialog-native" />}
           >
             <option aria-label="None" value="" />
-            <option value={"オーストラリアンシェパード"}>
-              オーストラリアンシェパード
+            <option value={category_dog.a}>
+            {category_dog.a}
             </option>
-            <option value="ボーダーコリー">ボーダーコリー</option>
-            <option value="シーズー">シーズー</option>
-            <option value="柴犬">柴犬</option>
+            <option value={category_dog.b}>{category_dog.b}</option>
+            <option value={category_dog.c}>{category_dog.c}</option>
+            <option value={category_dog.d}>{category_dog.d}</option>
           </Select>
         </FormControl>
 
@@ -175,8 +177,8 @@ const Search = () => {
             input={<Input id="demo-dialog-native" />}
           >
             <option aria-label="None" value="" />
-            <option value={"おまかせ"}>おまかせ</option>
-            <option value={"newItem"}>新しく追加された順</option>
+            <option value={sort_dog.a}>{sort_dog.a}</option>
+            <option value={sort_dog.b}>{sort_dog.b}</option>
           </Select>
         </FormControl>
         <Button
