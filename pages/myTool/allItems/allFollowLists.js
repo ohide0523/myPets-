@@ -18,11 +18,19 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     alignItems: "center",
     width: "100%",
-    paddingTop: "50px",
+    paddingTop: "20px",
+    margin: "auto",
     [theme.breakpoints.up("md")]: {
       width: "90%",
       margin: "auto",
     },
+  },
+  title_page:{
+    fontSize:20,
+    textAlign:"center",
+    background: "#CEF9DC",
+    padding:10,
+    borderRadius:30
   },
   card: {
     borderRadius: 10,
@@ -142,7 +150,7 @@ const AllFollowList = () => {
           background: "#FFEEFF",
         }}
       >
-        <h1 style={{ textAlign: "center" }}>あなたがフォローしたユーザー</h1>
+        <h1 className={classes.title_page}>フォローしたユーザー</h1>
         <Grid container spacing={3} className={classes.root}>
           {allFollowList.length > 0 &&
             allFollowList.map((user, index) => (

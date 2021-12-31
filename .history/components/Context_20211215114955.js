@@ -86,7 +86,6 @@ const ContextProvider = ({ children }) => {
     let newItems =[]
     db.collectionGroup("items").onSnapshot((snapshot) => {
       snapshot.forEach((doc) => {
-        console.log(doc.data())
        newItems.push({
            userId:doc.data().userId,
            id:doc.data().id,

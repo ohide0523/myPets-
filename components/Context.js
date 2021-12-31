@@ -79,6 +79,7 @@ const ContextProvider = ({ children }) => {
           name: "設定されていません",
           email: "設定されていません",
           introduce: "設定されていません",
+          followerCount:0,
         });
         setIsLogin(true);
       } else {
@@ -138,9 +139,6 @@ const ContextProvider = ({ children }) => {
   // itemの取得
   const getItems = () => {
     let newItem = [];
-
-    // db.collectionGroup("items").onSnapshot(() => {
-
     db.collectionGroup("items")
       .orderBy("createAt", "desc")
       .get()
@@ -161,7 +159,6 @@ const ContextProvider = ({ children }) => {
 
         setItems(newItem);
       });
-    // });
   };
 
   //自分のアカウント情報の取得
@@ -187,8 +184,6 @@ const ContextProvider = ({ children }) => {
   //   自分がいいねしたitemの取得
   const getMyLikedItems = () => {
     let newItems = [];
-    // db.collection("users").doc(uid).collection("likedItems");
-    //   .onSnapshot(() => {
     db.collection("users")
       .doc(uid)
       .collection("likedItems")
@@ -206,9 +201,7 @@ const ContextProvider = ({ children }) => {
         });
         setMyLikedItems(newItems);
       });
-    //   });
   };
-
 
   return (
     <Context.Provider
@@ -245,7 +238,6 @@ const ContextProvider = ({ children }) => {
         setMyFollowUser,
         searchItems,
         setSearchItems,
-
       }}
     >
       {children}

@@ -18,11 +18,18 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     alignItems: "center",
     width: "100%",
-    paddingTop: "50px",
+    paddingTop: "20px",
     [theme.breakpoints.up("md")]: {
       width: "90%",
       margin: "auto",
     },
+  },
+  title_page:{
+    fontSize:20,
+    textAlign:"center",
+    background: "#CEF9DC",
+    padding:10,
+    borderRadius:30
   },
   card: {
     borderRadius: 10,
@@ -140,8 +147,8 @@ const AllLikedItems = () => {
           background: "#FFEEFF",
         }}
       >
-        <h1 style={{ textAlign: "center" }}>
-          あなたが里親に出したワンちゃんたち
+        <h1 className={classes.title_page}>
+          里親に出したワンちゃんたち
         </h1>
         <Grid container spacing={3} className={classes.root}>
           {allMyItems.length > 0 &&

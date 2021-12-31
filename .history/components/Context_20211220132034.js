@@ -97,35 +97,6 @@ const ContextProvider = ({ children }) => {
     });
   };
 
-  // itemの取得
-  // const getItems = () => {
-  //    if(newItems){
-  //        console.log(newItems)
-  //        setItems(newItems)
-  //    }
-
-  //   let newItem = [];
-  //   db.collectionGroup("items").onSnapshot(() => {
-  //     db.collectionGroup("items")
-  //       .orderBy("createAt", "desc")
-  //       .get()
-  //       .then((snapshot) => {
-  //         snapshot.forEach((doc) => {
-  //           newItem.push({
-  //             userId: doc.data().userId,
-  //             id: doc.data().id,
-  //             title: doc.data().title,
-  //             img: doc.data().img,
-  //             category: doc.data().category,
-  //             age: doc.data().age,
-  //             sex: doc.data().sex,
-  //             content: doc.data().content,
-  //           });
-  //         });
-  //         setItems(newItem);
-  //       });
-  //   });
-  // };
 
   const getItems = () => {
     if (newItems) {

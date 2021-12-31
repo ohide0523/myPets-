@@ -44,6 +44,13 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
   },
+  title_page:{
+    fontSize:25,
+    textAlign:"center",
+    background: "#CEF9DC",
+    padding:"15px 40px",
+    borderRadius:50
+  },
   img: {
     width: "100%",
     height: "50%",
@@ -268,7 +275,7 @@ const Item = () => {
 
   return (
     <div className={Styles.another_item_page_container}>
-      <h1 style={{ textAlign: "center" }}>困っているワンちゃん</h1>
+      <h1 className={classes.title_page}>困っているワンちゃん</h1>
       {anotherItem.length > 0 &&
         anotherItem.map((item, index) => (
           <div key={index}>
@@ -368,7 +375,7 @@ const Item = () => {
                 width: "100%",
               }}
             >
-              <h2>飼い主</h2>
+              <h2 className={classes.title_page}>飼い主</h2>
 
               {anotherUser.length > 0 &&
                 anotherUser.map((user, index) => (

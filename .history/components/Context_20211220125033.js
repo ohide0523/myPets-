@@ -131,7 +131,7 @@ const ContextProvider = ({ children }) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
           let newItem = [];
-          console.log("added")
+         
           db.collectionGroup("items")
             .orderBy("createAt", "desc")
             .get()
@@ -153,7 +153,7 @@ const ContextProvider = ({ children }) => {
             });
         }
         if (change.type === "modified") {
-            console.log("modified")
+         
           setItems(newItems);
         }
       });

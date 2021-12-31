@@ -89,7 +89,7 @@ const Search = () => {
 
     if (category && sort == "おまかせ") {
       let newItem = [];
-      console.log(category);
+     
       db.collectionGroup("items")
         .where("category", "==", category)
         .get()
@@ -118,7 +118,6 @@ const Search = () => {
 
     if (category && sort == "newItem") {
       let newItem = [];
-      console.log(category);
       db.collectionGroup("items")
         .where("category", "==", category)
         .orderBy("createAt", "desc")
@@ -140,7 +139,6 @@ const Search = () => {
           setSearchItems(newItem);
           setIsSearch(true);
         });
-      <Search_answer isSearch={isSearch} />;
       router.push("/search_answer");
       return;
     }
