@@ -30,7 +30,7 @@ const ContextProvider = ({ children }) => {
         router.push("/login");
       }
     });
-  }, [router]);
+  }, []);
 
   useEffect(() => {
     if (uid) {
