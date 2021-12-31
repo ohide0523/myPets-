@@ -30,7 +30,7 @@ const ContextProvider = ({ children }) => {
         router.push("/login");
       }
     });
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (uid) {
@@ -207,6 +207,7 @@ const ContextProvider = ({ children }) => {
     //   });
   };
 
+
   return (
     <Context.Provider
       value={{
@@ -242,6 +243,7 @@ const ContextProvider = ({ children }) => {
         setMyFollowUser,
         searchItems,
         setSearchItems,
+
       }}
     >
       {children}

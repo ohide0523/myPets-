@@ -43,11 +43,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const chat = () => {
+const Chat = () => {
   // チャット用の自分のユーザー
-  const [myUser, setMyUser] = useState([]);
+
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
+  const [myUser, setMyUser] = useState([]);
   const router = useRouter();
   const { pid } = router.query;
   const { uid } = useContext(Context);
@@ -56,41 +57,11 @@ const chat = () => {
   const length = messages.length;
   const classes = useStyles();
 
-  useEffect(() => {
-    console.log(messages);
-  }, [messages]);
-  useEffect(() => {
-    if (length) {
-      scrollToEnd();
-    }
-  }, [length]);
-
-  useEffect(() => {
-    if (pid && uid) {
-      getMsg();
-      ref.current.focus();
-    }
-  }, [pid, uid]);
-
-  useEffect(() => {
-    if (uid) {
-      let user = [];
-      db.collection("users")
-        .doc(uid)
-        .get()
-        .then((doc) => {
-          user.push({
-            id: doc.data().id,
-            img: doc.data().img,
-            name: doc.data().name,
-          });
-          setMyUser(user);
-        });
-    }
-  }, [uid]);
+  
+  
 
   //全メッセージ内容の取得
-  const getMsg = () => {
+  const getMsg = useCallback(() => {
     const id = uid > pid ? `${uid}${pid}` : `${pid}${uid}`;
     db.collection("chatRoom")
       .doc(id)
@@ -103,7 +74,7 @@ const chat = () => {
           }
         });
       });
-  };
+  },[pid,uid]);
 
   //メッセージ送信 ~~~Enterでの送信パターン~~~
   const submitMsg = (e) => {
@@ -173,6 +144,38 @@ const chat = () => {
     });
   }, [ref]);
 
+
+
+  useEffect(() => {
+    if (length) {
+      scrollToEnd();
+    }
+  }, [length,scrollToEnd]);
+
+  useEffect(() => {
+    if (pid && uid) {
+      getMsg();
+      ref.current.focus();
+    }
+  }, [pid, uid,getMsg]);
+
+  useEffect(() => {
+    if (uid) {
+      let user = [];
+      db.collection("users")
+        .doc(uid)
+        .get()
+        .then((doc) => {
+          user.push({
+            id: doc.data().id,
+            img: doc.data().img,
+            name: doc.data().name,
+          });
+          setMyUser(user);
+        });
+    }
+  }, [uid]);
+
   return (
     <>
       <div className={classes.root}>
@@ -222,4 +225,4 @@ const chat = () => {
   );
 };
 
-export default chat;
+export default Chat;
