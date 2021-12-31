@@ -232,7 +232,7 @@ const profile = () => {
     }
   }, [uid]);
 
-  // 自分の募集したitemの取得
+  
   const getMyItems = () => {
     let newItems = [];
     db.collection("users")
