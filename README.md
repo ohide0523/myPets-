@@ -302,9 +302,9 @@ $ npm run dev
  - BaaS: Firebase
      - IDaaS: Firebase Authentication
      - Database: Cloud Firestore
-     - Hosting: Firebase Hosting
      - FaaS: Cloud Functions
      - Storage: Cloud Storage
+ - Deploy:Vercel
     <br>
   <h2>Requirements</h2>
   
