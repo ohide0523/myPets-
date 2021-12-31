@@ -70,7 +70,7 @@ const EditProfile = () => {
   const { uid } = useContext(Context);
 
   
-  const getMyProfileData = useCallback(() => {
+  const getMyProfileData = () => {
     db.collection("users")
       .doc(uid)
       .get()
@@ -80,10 +80,10 @@ const EditProfile = () => {
         setEditEmail(doc.data().email);
         setEditIntroduce(doc.data().introduce);
       });
-  },[uid]);
+  }
 
   //写真の登録
-  const uploadPhoto = (e) => {
+  const UploadPhoto = (e) => {
     const storageRef = firebase.storage().ref();
     const file = e.target.files;
     let blob = new Blob(file, { type: "images/jpeg" });
@@ -133,7 +133,7 @@ const EditProfile = () => {
     if (uid) {
       getMyProfileData();
     }
-  }, [uid, getMyProfileData]);
+  }, [uid]);
 
 
   return (
@@ -149,18 +149,20 @@ const EditProfile = () => {
       <input
         accept="image/*"
         style={{ display: "none" }}
+        id="icon-button-file"
         type="file"
-        onChange={uploadPhoto}
-      />
+        onChange={UploadPhoto}
+        />
       <label htmlFor="icon-button-file">
         <IconButton
           color="primary"
           aria-label="upload picture"
           component="span"
-        >
+          >
           <PhotoCamera />
         </IconButton>
       </label>
+      
 
       <TextField
         id="standard-basic"

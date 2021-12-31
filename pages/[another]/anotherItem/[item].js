@@ -273,7 +273,7 @@ const Item = () => {
         anotherItem.map((item, index) => (
           <div key={index}>
             <Paper elevation={5} className={classes.root}>
-              <Image
+              <img
                 src={item.img}
                 alt="ワンちゃんの画像"
                 className={classes.img}

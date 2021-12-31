@@ -89,7 +89,7 @@ const AnotherProfile = () => {
  
 
   // フォローボタンの状態の取得
-  const getFollow = useCallback(() => {
+  const getFollow = () => {
     db.collection("users")
       .doc(uid)
       .collection("followLists")
@@ -104,7 +104,7 @@ const AnotherProfile = () => {
           }
         });
       });
-  },[uid,profile]);
+  };
 
   // フォローする機能
   const onClickFollow = async (id, name, img, followerCount) => {
@@ -164,7 +164,7 @@ const AnotherProfile = () => {
   };
 
   // 他人のユーザーの取得
-  const getAnotherUser = useCallback(() => {
+  const getAnotherUser = () => {
     let newItem = [];
 
     db.collection("users")
@@ -180,7 +180,7 @@ const AnotherProfile = () => {
         });
         setAnotherUser(newItem);
       });
-  },[profile]);
+  };
 
 
   useEffect(() => {
@@ -190,7 +190,7 @@ const AnotherProfile = () => {
     if (profile && uid) {
       getFollow();
     }
-  }, [profile, uid,getAnotherUser,getFollow]);
+  }, [profile, uid]);
 
   return (
     <main className={classes.root}>

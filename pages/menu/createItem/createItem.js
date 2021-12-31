@@ -183,7 +183,7 @@ const CreateItem = () => {
       <h1>募集ページ</h1>
       <div style={{ textAlign: "center" }}>
         {previewImg && (
-          <Image
+          <img
           src={itemImg}
           style={{ width: "90%", height: "200px", borderRadius: 10 }}
           onClick={onClickPhotoDelete}

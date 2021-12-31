@@ -6,12 +6,12 @@ import "@firebase/storage";
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
-    apiKey: "AIzaSyC_SK0QajmwDJKMcce1wJ570V5cyTy-ZMg",
-    authDomain: "mypets-743b3.firebaseapp.com",
-    projectId: "mypets-743b3",
-    storageBucket: "mypets-743b3.appspot.com",
-    messagingSenderId: "772499991986",
-    appId: "1:772499991986:web:368a75aad4379bc98808ab",
+    apiKey: "AIzaSyCPwG3RZIX3t3H580kcgzXOGoqlKVF9mrI",
+    authDomain: "mypets-f611f.firebaseapp.com",
+    projectId: "mypets-f611f",
+    storageBucket: "mypets-f611f.appspot.com",
+    messagingSenderId: "878641403432",
+    appId: "1:878641403432:web:68e5f01842e17449a7071d"
   });
 }
 

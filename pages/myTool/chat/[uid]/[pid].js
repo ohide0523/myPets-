@@ -137,12 +137,12 @@ const Chat = () => {
   };
 
   //下まで自動スクロール
-  const scrollToEnd = useCallback(() => {
+  const scrollToEnd = () => {
     ref.current.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  }, [ref]);
+  };
 
 
 
@@ -157,7 +157,7 @@ const Chat = () => {
       getMsg();
       ref.current.focus();
     }
-  }, [pid, uid,getMsg]);
+  }, [pid, uid]);
 
   useEffect(() => {
     if (uid) {

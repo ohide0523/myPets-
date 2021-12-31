@@ -96,7 +96,7 @@ const AllFollowList = () => {
   
 
   //   自分がフォローしたListの取得
-  const getAllFollowList = useCallback(() => {
+  const getAllFollowList = () => {
     
     let newItems = [];
     db.collection("users")
@@ -122,13 +122,13 @@ const AllFollowList = () => {
           });
       });
     
-  },[uid]);
+  };
 
   useEffect(() => {
     if (uid) {
       getAllFollowList();
     }
-  }, [uid,getAllFollowList]);
+  }, [uid]);
 
   return (
     <>

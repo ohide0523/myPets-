@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { Context } from "./Context";
 // material-ui
@@ -15,9 +15,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
-    header:{
-       
-    },
+  header: {},
   formControl: {
     margin: theme.spacing(4),
   },
@@ -32,14 +30,12 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(4),
     [theme.breakpoints.up("md")]: {
-        padding:20
-    }
+      padding: 20,
+    },
   },
   toolbar: {
     alignItems: "center",
-    [theme.breakpoints.up("md")]: {
-       
-    }
+    [theme.breakpoints.up("md")]: {},
   },
   title: {
     flexGrow: 1,
@@ -47,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   searchIcon: {
     fontSize: 33,
     marginLeft: 30,
-    color:"white",
+    color: "white",
   },
   switchIcon: {},
 }));
@@ -55,48 +51,45 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const router = useRouter();
-  const {anonymouslyLogin,isLogin } = useContext(Context);
+  const { anonymouslyLogin, isLogin } = useContext(Context);
 
   const search_open = () => {
-    
     router.push("/search");
   };
 
   return (
-  
-      <header className={classes.header}>
-        <AppBar position="fixed">
-          <Toolbar className={classes.toolbar}>
-            <Link href="/Top" passHref>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="open drawer"
-              >
-                MyPets!
-              </IconButton>
-            </Link>
-            <Typography
-              className={classes.title}
-              variant="h5"
-              noWrap
-            ></Typography>
-            <div className={classes.icons}>
-              <Button onClick={search_open}>
-                <SearchIcon className={classes.searchIcon} />
-              </Button>
+    <header className={classes.header}>
+      <AppBar position="fixed">
+        <Toolbar className={classes.toolbar}>
+          <Link href="/Top" passHref>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+            >
+              MyPets!
+            </IconButton>
+          </Link>
+          <Typography
+            className={classes.title}
+            variant="h5"
+            noWrap
+          ></Typography>
+          <div className={classes.icons}>
+            <Button onClick={search_open}>
+              <SearchIcon className={classes.searchIcon} />
+            </Button>
 
-              <Switch
-                className={classes.switchIcon}
-                checked={isLogin}
-                onChange={anonymouslyLogin}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-      </header>
-  
+            <Switch
+              className={classes.switchIcon}
+              checked={isLogin}
+              onChange={anonymouslyLogin}
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
+    </header>
   );
 };
 

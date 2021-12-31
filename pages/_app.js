@@ -31,12 +31,12 @@ export default function MyApp(props) {
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        {/* <ThemeProvider theme={theme}> */}
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />
           <Component {...pageProps} />
           <Footer />
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </CacheProvider>
       </React.StrictMode>
     </ContextProvider>

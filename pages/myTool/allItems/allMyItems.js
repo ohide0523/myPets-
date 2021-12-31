@@ -95,7 +95,7 @@ const AllLikedItems = () => {
 
 
   //   自分がいいねしたitemの取得
-  const getAllMyItems = useCallback(() => {
+  const getAllMyItems =() => {
     let newItems = [];
     db.collection("users")
       .doc(uid)
@@ -119,14 +119,14 @@ const AllLikedItems = () => {
             setAllMyItems(newItems);
           });
       });
-  },[uid]);
+  };
 
 
   useEffect(() => {
     if (uid) {
       getAllMyItems();
     }
-  }, [uid,getAllMyItems]);
+  }, [uid]);
 
   return (
     <>

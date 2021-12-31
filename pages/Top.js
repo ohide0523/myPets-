@@ -94,7 +94,7 @@ const Top = () => {
 
   useEffect(() => {
     getItems();
-  }, [getItems]);
+  },[]);
 
   return (
     <>

@@ -80,7 +80,7 @@ const EditItem = () => {
 
  
 
-  const getEditData = useCallback(() => {
+  const getEditData = () => {
     db.collection("users")
       .doc(uid)
       .collection("items")
@@ -94,7 +94,7 @@ const EditItem = () => {
         setEditSex(doc.data().sex);
         setEditContent(doc.data().content);
       });
-  },[uid,editItem]);
+  }
 
   //写真の登録
   const uploadPhoto = (e) => {
@@ -174,13 +174,13 @@ const EditItem = () => {
     if (uid && editItem) {
       getEditData();
     }
-  }, [uid, editItem,getEditData]);
+  }, [uid, editItem]);
 
   return (
     <main className={classes.root}>
       <h1>編集ページ</h1>
       <div style={{ textAlign: "center" }}>
-        <Image src={editItemImg} className={classes.img} alt="ワンちゃんの写真" />
+        <img src={editItemImg} className={classes.img} alt="ワンちゃんの写真" />
       </div>
       <input
         accept="image/*"
