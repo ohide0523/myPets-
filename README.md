@@ -308,7 +308,8 @@ $ npm run dev
     <br>
   <h2>Requirements</h2>
   
-  - Node.js v12.16.0
+  - Node.js v15.00系
+  - npm v7.7.6
 
 
     <br>
