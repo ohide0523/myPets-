@@ -12,6 +12,8 @@ import FavoriteBorderIcon from "@material-ui/icons/Favorite";
 
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
+import { red } from '@mui/material/colors';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
       left: 5,
       padding: "10px 15px",
     },
+    like_icon:{
+      background:'#d32f2f'
+    },
   },
 }));
 
@@ -127,7 +132,7 @@ const Top = () => {
                     </Link>
                     <h2 className={classes.title}> {item.title}</h2>
                     <div className={classes.likeIcon}>
-                      <FavoriteIcon />
+                      <FavoriteIcon  className={classes.like_icon}/>
 
                       <div>{item.likeCount}</div>
                     </div>

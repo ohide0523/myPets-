@@ -126,21 +126,24 @@ const AnotherProfile = () => {
         user: uid, //フォローしてきたユーザーのuid
       }
     );
-    batch.update(db.doc(anotherUserRef.path), {
-      followerCount: firebase.firestore.FieldValue.increment(+1),
-    });
 
     // フォローした側の処理
     batch.set(db.doc(myUserRef.path).collection("followLists").doc(id), {
-      followerCount:firebase.firestore.FieldValue.increment(+1) ,
+      followerCount:followerCount,
       img: img,
       name: name, //フォローした人のユーザーの名前（仮）　最終的には、プロフィール写真にしたい
       followUser: id, //フォローした人のuid
       user: uid, //自分のuid
       follow: true,
     });
+
+    batch.update(db.doc(myUserRef.path).collection("followLists").doc(id), {
+      followerCount:firebase.firestore.FieldValue.increment(+1)
+    })
     await batch.commit();
   };
+
+  
 
   //  フォロー解除した時の処理
   const onClickUnFollow = async (id) => {

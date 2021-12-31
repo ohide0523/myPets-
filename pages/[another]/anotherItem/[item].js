@@ -202,9 +202,15 @@ const Item = () => {
       userId: userId,
       itemRef: anotherItemRef,
       like: true, //ここは、likeの状態を表すもの。後で、likeのstateで管理する。
-      likeCount:firebase.firestore.FieldValue.increment(+1) ,
+      likeCount:count,
     });
 
+    // 今回のいいね分を加算する。
+    batch.update(db.doc(myUserRef.path).collection("likedItems").doc(item), {
+      likeCount:firebase.firestore.FieldValue.increment(+1),
+    });
+
+    
     batch.update(myUserRef, {
       createAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
