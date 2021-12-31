@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import React, { useEffect } from "react";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from "prop-types";
 import Head from "next/head";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
@@ -31,12 +31,12 @@ export default function MyApp(props) {
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <ThemeProvider theme={theme}>
+        {/* <ThemeProvider theme={theme}> */}
           <CssBaseline />
           <Header />
           <Component {...pageProps} />
           <Footer />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </CacheProvider>
       </React.StrictMode>
     </ContextProvider>

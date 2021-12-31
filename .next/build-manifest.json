@@ -30,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/menu/myPage/profile": [
+    "/search": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/menu/myPage/profile.js"
+      "static/chunks/pages/search.js"
+    ],
+    "/search_answer": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/search_answer.js"
     ]
   },
   "ampFirstPages": []
