@@ -203,6 +203,69 @@ const ContextProvider = ({ children }) => {
       });
   };
 
+
+
+  //  いいねする機能
+  const addLikedItem = async (userId, itemId, img, title,count) => {
+    // batch
+    const batch = db.batch();
+
+    const anotherItemRef = db
+      .collection("users")
+      .doc(userId)
+      .collection("items")
+      .doc(itemId);
+    const myUserRef = db.collection("users").doc(uid);
+
+    batch.set(db.doc(anotherItemRef.path).collection("likedUsers").doc(item), {
+      user: uid,
+      itemId: item,
+    });
+
+    batch.update(anotherItemRef, {
+      likeCount: firebase.firestore.FieldValue.increment(+1),
+      createAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    batch.set(db.doc(myUserRef.path).collection("likedItems").doc(item), {
+      title: title,
+      img: img, //ここに個々のitemの写真を打ち込みたい
+      id: itemId,
+      userId: userId,
+      itemRef: anotherItemRef,
+      like: true, //ここは、likeの状態を表すもの。後で、likeのstateで管理する。
+      likeCount: count,
+    });
+
+    batch.update(myUserRef, {
+      createAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    await batch.commit();
+    getAnotherItem();
+  };
+
+  //   いいねを解除する機能
+  const deleteLikedItem = async (userId, itemId) => {
+    const batch = db.batch();
+    const anotherItemRef = db
+      .collection("users")
+      .doc(userId)
+      .collection("items")
+      .doc(itemId);
+    const myUserRef = db.collection("users").doc(uid);
+    batch.delete(
+      db.doc(anotherItemRef.path).collection("likedUsers").doc(item)
+    );
+    batch.update(anotherItemRef, {
+      likeCount: firebase.firestore.FieldValue.increment(-1),
+    });
+
+    batch.delete(db.doc(myUserRef.path).collection("likedItems").doc(item));
+    await batch.commit();
+    getAnotherItem();
+  };
+
+  
   return (
     <Context.Provider
       value={{

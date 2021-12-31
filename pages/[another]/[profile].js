@@ -132,7 +132,7 @@ const AnotherProfile = () => {
 
     // フォローした側の処理
     batch.set(db.doc(myUserRef.path).collection("followLists").doc(id), {
-      followerCount: followerCount,
+      followerCount:firebase.firestore.FieldValue.increment(+1) ,
       img: img,
       name: name, //フォローした人のユーザーの名前（仮）　最終的には、プロフィール写真にしたい
       followUser: id, //フォローした人のuid

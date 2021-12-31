@@ -174,7 +174,7 @@ const Item = () => {
   }, [another, item]);
 
   //  いいねする機能
-  const addLikedItem = async (userId, itemId, img, title, count) => {
+  const addLikedItem = async (userId, itemId, img, title,count) => {
     // batch
     const batch = db.batch();
 
@@ -202,7 +202,7 @@ const Item = () => {
       userId: userId,
       itemRef: anotherItemRef,
       like: true, //ここは、likeの状態を表すもの。後で、likeのstateで管理する。
-      likeCount: firebase.firestore.FieldValue.increment(+1),
+      likeCount:firebase.firestore.FieldValue.increment(+1) ,
     });
 
     batch.update(myUserRef, {
@@ -234,7 +234,7 @@ const Item = () => {
   };
 
   //各itemのlikeの状態を取得
-  const getLike = useCallback(() => {
+  const getLike = () => {
     db.collection("users")
       .doc(uid)
       .collection("likedItems")
@@ -260,7 +260,7 @@ const Item = () => {
           }
         });
       });
-  }, [uid, item]);
+  };
 
   useEffect(() => {
     if (another && item) {
@@ -270,7 +270,7 @@ const Item = () => {
     if (another && item && uid) {
       getLike();
     }
-  }, [another, item, uid, getAnotherItem, getAnotherUser, getLike]);
+  }, [another, item, uid]);
 
 
   return (

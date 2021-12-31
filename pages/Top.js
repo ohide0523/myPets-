@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { Context } from "../components/Context";
 
@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/Favorite";
 
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
@@ -77,13 +78,13 @@ const useStyles = makeStyles((theme) => ({
     top: 120,
     left: 5,
     background: "#CEF9DC",
-    padding: "2px 10px 2px 7px",
+    padding: "5px 15px 5px 8px",
     borderRadius: 20,
     opacity: 0.7,
     [theme.breakpoints.up("md")]: {
       top: 180,
       left: 5,
-      padding: "10px 20px 10px 7px",
+      padding: "10px 15px",
     },
   },
 }));
@@ -94,7 +95,7 @@ const Top = () => {
 
   useEffect(() => {
     getItems();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -125,14 +126,10 @@ const Top = () => {
                       />
                     </Link>
                     <h2 className={classes.title}> {item.title}</h2>
-                    <div className={classes.likeCount}>
-                      {/* likeCountのcss   */}
-                      <div className={classes.likeIcon}>
-                        <FavoriteIcon
-                          style={{ paddingRight: 3 }}
-                        ></FavoriteIcon>
-                        <div>{item.likeCount}</div>
-                      </div>
+                    <div className={classes.likeIcon}>
+                      <FavoriteIcon />
+
+                      <div>{item.likeCount}</div>
                     </div>
                   </CardContent>
                 </Paper>
