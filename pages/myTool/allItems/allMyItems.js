@@ -29,8 +29,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign:"center",
     background: "#CEF9DC",
     padding:10,
-    borderRadius:30
+    borderRadius:30,
+    [theme.breakpoints.up("md")]: {
+      fontSize:30,
+      padding:"25px 20px",
+      width:"50%",
+      margin:"auto",
+      marginTop:30,
   },
+},
   card: {
     borderRadius: 10,
     position: "relative",

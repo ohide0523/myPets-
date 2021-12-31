@@ -30,15 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/menu/myPage/profile": [
+    "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/menu/myPage/profile.js"
-    ],
-    "/myTool/chat/[uid]/[pid]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/myTool/chat/[uid]/[pid].js"
+      "static/chunks/pages/login.js"
     ]
   },
   "ampFirstPages": []
