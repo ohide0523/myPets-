@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth, db, googleProvider } from "./firebase";
+import firebase from "@firebase/app";
 
 export const Context = createContext();
 
@@ -19,29 +20,27 @@ const ContextProvider = ({ children }) => {
   const [myLikedItems, setMyLikedItems] = useState([]);
   const [myFollowUser, setMyFollowUser] = useState([]);
 
-
   // 犬の情報
   // カテゴリー
   const category_dog = {
-    a:"オーストラリアンシェパード",
-    b:"ボーダーコリー",
-    c:"シーズー",
-    d:"柴犬"
-  }
+    a: "オーストラリアンシェパード",
+    b: "ボーダーコリー",
+    c: "シーズー",
+    d: "柴犬",
+  };
 
   // 性別
-  const sex = {
-    a:"メス",
-    b:"オス"
-  }
+  const sex_dog = {
+    a: "メス",
+    b: "オス",
+  };
 
-
-// 絞り込みに必要なデータ
-// 並べ替え
-  const sort_dog={
-    a:"おまかせ",
-    b:"新しく追加された順"
-  }
+  // 絞り込みに必要なデータ
+  // 並べ替え
+  const sort_dog = {
+    a: "おまかせ",
+    b: "新しく追加された順",
+  };
 
   const router = useRouter();
 
@@ -62,8 +61,7 @@ const ContextProvider = ({ children }) => {
     }
   }, [uid]);
 
-
-// Topページに遷移する処理
+  // Topページに遷移する処理
   const onClickTop = () => {
     if (uid) {
       router.push("/Top");
@@ -71,7 +69,6 @@ const ContextProvider = ({ children }) => {
       alert("ログインしてください。。");
     }
   };
-
 
   // 匿名ログイン
   const anonymouslyLogin = () => {
@@ -86,6 +83,7 @@ const ContextProvider = ({ children }) => {
             email: "設定されていません",
             introduce: "設定されていません",
             followerCount: 0,
+            createAt: firebase.firestore.FieldValue.serverTimestamp(),
           });
           alert("テストログインに成功しました！");
           router.push("/Top");
@@ -114,7 +112,8 @@ const ContextProvider = ({ children }) => {
           name: "設定されていません",
           email: "設定されていません",
           introduce: "設定されていません",
-          followerCount:0,
+          followerCount: 0,
+          createAt: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setIsLogin(true);
       } else {
@@ -156,6 +155,7 @@ const ContextProvider = ({ children }) => {
           email: "設定されていません",
           introduce: "設定されていません",
           followerCount: 0,
+          createAt: firebase.firestore.FieldValue.serverTimestamp(),
         });
       })
       .catch(() => {
@@ -165,6 +165,9 @@ const ContextProvider = ({ children }) => {
 
   const logout = () => {
     auth.signOut().then(() => {
+      if (isLogin == false) {
+        return;
+      }
       alert("ログアウトしました");
       router.push("/Login");
       setIsLogin(false);
@@ -238,9 +241,6 @@ const ContextProvider = ({ children }) => {
       });
   };
 
-
-
-  
   return (
     <Context.Provider
       value={{
@@ -279,7 +279,7 @@ const ContextProvider = ({ children }) => {
         setSearchItems,
         category_dog,
         sort_dog,
-        sex,
+        sex_dog,
       }}
     >
       {children}

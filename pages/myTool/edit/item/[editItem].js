@@ -73,7 +73,7 @@ const EditItem = () => {
   const [editSex, setEditSex] = useState("");
   const [editContent, setEditContent] = useState("");
 
-  const { uid,category_dog,sex } = useContext(Context);
+  const { uid,category_dog,sex_dog } = useContext(Context);
   const router = useRouter();
   const { editItem } = router.query;
   const classes = useStyles();
@@ -235,8 +235,8 @@ const EditItem = () => {
           onChange={(e) => setEditSex(e.target.value)}
           label="性別"
         >
-          <MenuItem value={sex.a}>{sex.a}</MenuItem>
-          <MenuItem value={sex.b}>{sex.b}</MenuItem>
+          <MenuItem value={sex_dog.a}>{sex_dog.a}</MenuItem>
+          <MenuItem value={sex_dog.b}>{sex_dog.b}</MenuItem>
         </Select>
       </FormControl>
 

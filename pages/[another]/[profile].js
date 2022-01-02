@@ -127,6 +127,14 @@ const AnotherProfile = () => {
       }
     );
 
+    // フォローされたユーザーのフォロワー数を増やす
+    batch.update(
+      db.doc(anotherUserRef.path),
+      {
+        followerCount: firebase.firestore.FieldValue.increment(+1), 
+      }
+    );
+
     // フォローした側の処理
     batch.set(db.doc(myUserRef.path).collection("followLists").doc(id), {
       followerCount:followerCount,
@@ -169,7 +177,6 @@ const AnotherProfile = () => {
   // 他人のユーザーの取得
   const getAnotherUser = () => {
     let newItem = [];
-
     db.collection("users")
       .doc(profile)
       .get()

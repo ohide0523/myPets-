@@ -49,14 +49,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const { anonymouslyLogin, isLogin, onClickTop } = useContext(Context);
+  const { logout, isLogin, onClickTop } = useContext(Context);
+  const router = useRouter();
 
   const search_open = () => {
-    if(isLogin){
-      
+    if (isLogin) {
       router.push("/search");
-    }else{
-      alert("ログインしてください。。")
+    } else {
+      alert("ログインしてください。。");
       return;
     }
   };
@@ -88,7 +88,7 @@ const Header = () => {
             <Switch
               className={classes.switchIcon}
               checked={isLogin}
-              onChange={anonymouslyLogin}
+              onChange={logout}
             />
           </div>
         </Toolbar>

@@ -73,7 +73,7 @@ const CreateItem = () => {
   const [previewImg, setPreviewImg] = useState("");
   const classes = useStyles();
 
-  const { uid,category_dog,sex} = useContext(Context);
+  const { uid,category_dog,sex_dog} = useContext(Context);
   const router = useRouter();
 
   //写真の登録
@@ -245,8 +245,8 @@ const CreateItem = () => {
           onChange={(e) => setSex(e.target.value)}
           label="性別"
           >
-          <MenuItem value={sex.a}>{sex.a}</MenuItem>
-          <MenuItem value={sex.b}>{sex.b}</MenuItem>
+          <MenuItem value={sex_dog.a}>{sex_dog.a}</MenuItem>
+          <MenuItem value={sex_dog.b}>{sex_dog.b}</MenuItem>
         </Select>
       </FormControl>
 
