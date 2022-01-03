@@ -218,7 +218,7 @@ const Item = () => {
       likeCount:firebase.firestore.FieldValue.increment(+1),
     });
 
-    
+    // 編集した時間を更新する
     batch.update(myUserRef, {
       createAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
@@ -276,12 +276,18 @@ const Item = () => {
       });
   };
 
+  // 条件によって以下の関数が発火する
   useEffect(() => {
+    // 他ユーザーのid情報(another)とitemのid情報(item)をURLから受け取ったら発火
     if (another && item) {
+      // 他ユーザーのitemの詳細情報を取得
       getAnotherItem();
+      // 他ユーザーの情報を取得
       getAnotherUser();
     }
+    // 他ユーザーのid情報(another)とitemのid情報(item)と自分のid情報を受け取ったら発火
     if (another && item && uid) {
+      // いいねの状態を取得
       getLike();
     }
   }, [another, item, uid]);

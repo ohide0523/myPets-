@@ -88,8 +88,9 @@ const AnotherProfile = () => {
   const classes = useStyles();
   const { uid } = useContext(Context);
 
-  // フォローボタンの状態の取得
+  // フォローボタンの状態のリアルタイムで取得
   const getFollow = () => {
+    // 自分がフォローしているユーザーを管理するfollowListsからデータを取得
     db.collection("users")
       .doc(uid)
       .collection("followLists")
@@ -97,9 +98,11 @@ const AnotherProfile = () => {
       .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
           if (change.type === "added") {
+            // 変更したdata()のfollowの状態を取得
             setFollow(change.doc.data().follow);
           }
           if (change.type === "removed") {
+            // followListが削除されたら、followの状態はfalseになる。
             setFollow(false);
           }
         });
@@ -119,7 +122,7 @@ const AnotherProfile = () => {
 
     const batch = db.batch();
 
-    // フォローされた側の処理
+    // フォローされた側の処理　フォロワーを管理するfollowerListsを作成
     batch.set(
       db.doc(anotherUserRef.path).collection("followerLists").doc(uid),
       {
@@ -132,7 +135,7 @@ const AnotherProfile = () => {
       followerCount: firebase.firestore.FieldValue.increment(+1),
     });
 
-    // フォローした側の処理
+    // フォローした側の処理　フォローしたユーザーを管理するfollowListsを作成
     batch.set(db.doc(myUserRef.path).collection("followLists").doc(id), {
       followerCount: followerCount, //ユーザーがフォロ-されている数
       img: img, //フォローしたユーザーのアイコン

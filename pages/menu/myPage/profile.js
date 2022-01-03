@@ -33,6 +33,7 @@ import SwipeableViews from "react-swipeable-views";
 import AppBar from "@material-ui/core/AppBar";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 
+// material-uiの記述
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -205,6 +206,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// 自分のマイページ
 const Profile = () => {
   const {
     uid,
@@ -224,6 +226,7 @@ const Profile = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
+  
   useEffect(() => {
     if (uid) {
       getMyUser();

@@ -117,9 +117,10 @@ const CreateItem = () => {
 
   // itemの追加
   const addItem = () => {
+    // itemのidを指定してdoc()に入れるためのnewDoc
     const newDoc = db.collection("users").doc(uid).collection("items").doc().id;
 
-
+// 不足項目がないか判断している。
     if (itemImg == "") {
       alert("写真を入れてください。。");
       return;
@@ -163,6 +164,7 @@ const CreateItem = () => {
       })
       .then(() => {
         alert("募集しました！");
+        // 入力したものはリセット
         setTitle("");
         setCategory("");
         setSex("");
