@@ -3,7 +3,7 @@ import "@firebase/auth";
 import "@firebase/firestore";
 import "@firebase/storage";
 
-
+// 自分のfirebase情報
 if (!firebase.apps.length) {
   firebase.initializeApp({
     apiKey: "AIzaSyCPwG3RZIX3t3H580kcgzXOGoqlKVF9mrI",
@@ -14,8 +14,9 @@ if (!firebase.apps.length) {
     appId: "1:878641403432:web:68e5f01842e17449a7071d"
   });
 }
-
+// firebaseのAuthを参照
 export const auth = firebase.auth()
-export const db = firebase.firestore()
-
+// Authのグーグルログイン
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
+// firebaseのfirestoreを参照
+export const db = firebase.firestore()

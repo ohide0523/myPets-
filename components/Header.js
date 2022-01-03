@@ -47,15 +47,19 @@ const useStyles = makeStyles((theme) => ({
   switchIcon: {},
 }));
 
+// 全ページのHeaderメニューとして表示される
 const Header = () => {
   const classes = useStyles();
-  const { logout, isLogin, onClickTop } = useContext(Context);
+  const { logout, isLogin, onClickTop ,uid} = useContext(Context);
   const router = useRouter();
 
+  // 検索画面に遷移する処理
   const search_open = () => {
-    if (isLogin) {
+    if (uid) {
+      // ユーザー情報が入ってればそのまま遷移する
       router.push("/search");
     } else {
+       // ユーザー情報が入ってなければ警告のみ
       alert("ログインしてください。。");
       return;
     }

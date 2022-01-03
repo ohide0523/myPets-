@@ -6,21 +6,35 @@ import firebase from "@firebase/app";
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
+  // 自分のユーザー情報
   const [myUser, setMyUser] = useState([]);
+  // 自分のユーザーのid
   const [uid, setUid] = useState(null);
+  // 自分のユーザーが保持しているitem(ワンちゃん)
+  const [myItems, setMyItems] = useState([]);
+  // 自分がいいねしているitem(ワンちゃん)
+  const [myLikedItems, setMyLikedItems] = useState([]);
+  // 自分がフォローしているユーザー
+  const [myFollowUser, setMyFollowUser] = useState([]);
+  // ユーザーのemail
   const [email, setEmail] = useState("");
+  // ユーザーのpassword
   const [password, setPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
+  // 新しく作成するアカウントのemail
   const [newEmail, setNewEmail] = useState("");
+  // 新しく作成するアカウントのpassword
+  const [newPassword, setNewPassword] = useState("");
+  //トップ画面に表示する全ユーザーの持っているitem(ワンちゃん)
   const [items, setItems] = useState([]);
+  // 絞り込み検索した結果のitems
   const [searchItems, setSearchItems] = useState([]);
+  // ユーザーのログイン状態
   const [isLogin, setIsLogin] = useState(false);
 
-  const [myItems, setMyItems] = useState([]);
-  const [myLikedItems, setMyLikedItems] = useState([]);
-  const [myFollowUser, setMyFollowUser] = useState([]);
+  const router = useRouter();
 
-  // 犬の情報
+  // 犬について
+
   // カテゴリー
   const category_dog = {
     a: "オーストラリアンシェパード",
@@ -36,13 +50,12 @@ const ContextProvider = ({ children }) => {
   };
 
   // 絞り込みに必要なデータ
+
   // 並べ替え
   const sort_dog = {
     a: "おまかせ",
     b: "新しく追加された順",
   };
-
-  const router = useRouter();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -50,6 +63,7 @@ const ContextProvider = ({ children }) => {
         // 自分のアカウントのuidをstateで管理する
         setUid(user.uid);
       } else {
+        // ユーザーにid情報がなければlogin画面へ遷移する
         router.push("/login");
       }
     });
@@ -57,6 +71,7 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (uid) {
+      // ユーザーにid情報が入っていればログイン状態をtrueにする
       setIsLogin(true);
     }
   }, [uid]);
@@ -64,38 +79,39 @@ const ContextProvider = ({ children }) => {
   // Topページに遷移する処理
   const onClickTop = () => {
     if (uid) {
+      // ユーザーにid情報が入っていればトップ画面に遷移する
       router.push("/Top");
     } else {
+      // ユーザー情報が入ってなければ、alertのみ表示する
       alert("ログインしてください。。");
     }
   };
 
   // 匿名ログイン
   const anonymouslyLogin = () => {
-    if (isLogin == false) {
-      auth
-        .signInAnonymously()
-        .then((res) => {
-          db.collection("users").doc(res.user.uid).set({
-            id: res.user.uid,
-            img: "",
-            name: "テストユーザー",
-            email: "設定されていません",
-            introduce: "設定されていません",
-            followerCount: 0,
-            createAt: firebase.firestore.FieldValue.serverTimestamp(),
-          });
-          alert("テストログインに成功しました！");
-          router.push("/Top");
-          setIsLogin(true);
-        })
-        .catch(() => {
-          alert("失敗しました。。");
+    // 匿名ログインする
+    auth
+      .signInAnonymously()
+      .then((res) => {
+        // 必要なユーザー情報をあらかじめ設定する
+        db.collection("users").doc(res.user.uid).set({
+          id: res.user.uid,
+          img: "",
+          name: "テストユーザー",
+          email: "設定されていません",
+          introduce: "設定されていません",
+          followerCount: 0,
+          createAt: firebase.firestore.FieldValue.serverTimestamp(),
         });
-    }
-    if (isLogin == true) {
-      logout();
-    }
+        alert("テストログインに成功しました！");
+        //トップ画面に遷移する
+        router.push("/Top");
+        // ログイン状態をtrueにする
+        setIsLogin(true);
+      })
+      .catch(() => {
+        alert("失敗しました。。");
+      });
   };
 
   //googleログイン
@@ -103,6 +119,7 @@ const ContextProvider = ({ children }) => {
     auth.signInWithPopup(googleProvider).then((res) => {
       // 初めてのユーザーなのか確認している。
       const firstLogin = res.additionalUserInfo.isNewUser;
+      // 初めてのユーザーなら、ユーザー初期設定をする
       if (firstLogin) {
         alert("初めてのユーザーのログインを確認しました！");
         router.push("Top");
@@ -117,6 +134,7 @@ const ContextProvider = ({ children }) => {
         });
         setIsLogin(true);
       } else {
+        // 既存のユーザーならトップページに遷移するだけ
         alert("既存のユーザーログインを確認しました！");
         router.push("/Top");
         setIsLogin(true);
@@ -148,6 +166,7 @@ const ContextProvider = ({ children }) => {
         router.push("Top");
         setNewEmail("");
         setNewPassword("");
+        // emailアカウント作成時にユーザー初期設定をする
         db.collection("users").doc(res.user.uid).set({
           id: res.user.uid,
           img: "",
@@ -163,6 +182,8 @@ const ContextProvider = ({ children }) => {
       });
   };
 
+
+  // ログアウト処理
   const logout = () => {
     auth.signOut().then(() => {
       if (isLogin == false) {
@@ -174,13 +195,16 @@ const ContextProvider = ({ children }) => {
     });
   };
 
-  // itemの取得
+
+
+  // 全ユーザーのitem(ワンちゃん)の取得してトップ画面に表示する
   const getItems = () => {
     let newItem = [];
     db.collectionGroup("items")
       .orderBy("createAt", "desc")
       .get()
       .then((snapshot) => {
+        // item一つ一つの情報を取得
         snapshot.forEach((doc) => {
           newItem.push({
             userId: doc.data().userId,
@@ -194,7 +218,7 @@ const ContextProvider = ({ children }) => {
             likeCount: doc.data().likeCount,
           });
         });
-
+        // itemに全て入れている
         setItems(newItem);
       });
   };
@@ -207,10 +231,15 @@ const ContextProvider = ({ children }) => {
       .onSnapshot((snapshot) => {
         snapshot.forEach((doc) => {
           newUser.push({
+            // ユーザーのid情報
             id: doc.data().id,
+            // ユーザーのアイコン
             img: doc.data().img,
+            // ユーザーの名前
             name: doc.data().name,
+            // ユーザーのemail
             email: doc.data().email,
+            // ユーザーの自己紹介文
             introduce: doc.data().introduce,
           });
         });
@@ -242,6 +271,7 @@ const ContextProvider = ({ children }) => {
   };
 
   return (
+    // グローバルで管理
     <Context.Provider
       value={{
         onClickTop,

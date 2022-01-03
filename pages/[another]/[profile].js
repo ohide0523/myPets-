@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState, useContext,useCallback } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import firebase from "@firebase/app";
 import { db } from "../../components/firebase";
 
@@ -38,13 +38,12 @@ const useStyles = makeStyles((theme) => ({
     width: 210,
     height: 210,
     margin: "auto",
-    position:"relative",
-    marginTop:50,
+    position: "relative",
+    marginTop: 50,
     [theme.breakpoints.up("md")]: {
       width: 300,
       height: 300,
-      marginTop:0,
-      
+      marginTop: 0,
     },
   },
   button: {
@@ -79,14 +78,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AnotherProfile = () => {
+  //フォローボタンの状態を管理
   const [follow, setFollow] = useState(false);
+  // 他ユーザーの情報
   const [anotherUser, setAnotherUser] = useState([]);
   const router = useRouter();
+  // URLの中に他ユーザーのuidを埋め込んでいる
   const { profile } = router.query;
   const classes = useStyles();
   const { uid } = useContext(Context);
-
- 
 
   // フォローボタンの状態の取得
   const getFollow = () => {
@@ -108,8 +108,8 @@ const AnotherProfile = () => {
 
   // フォローする機能
   const onClickFollow = async (id, name, img, followerCount) => {
-    if(profile==uid){
-      alert("自分のことはフォローできません。")
+    if (profile == uid) {
+      alert("自分のことはフォローできません。");
       return;
     }
     // フォローされる側のユーザーの参照
@@ -128,30 +128,26 @@ const AnotherProfile = () => {
     );
 
     // フォローされたユーザーのフォロワー数を増やす
-    batch.update(
-      db.doc(anotherUserRef.path),
-      {
-        followerCount: firebase.firestore.FieldValue.increment(+1), 
-      }
-    );
+    batch.update(db.doc(anotherUserRef.path), {
+      followerCount: firebase.firestore.FieldValue.increment(+1),
+    });
 
     // フォローした側の処理
     batch.set(db.doc(myUserRef.path).collection("followLists").doc(id), {
-      followerCount:followerCount,
-      img: img,
+      followerCount: followerCount, //ユーザーがフォロ-されている数
+      img: img, //フォローしたユーザーのアイコン
       name: name, //フォローした人のユーザーの名前（仮）　最終的には、プロフィール写真にしたい
       followUser: id, //フォローした人のuid
       user: uid, //自分のuid
-      follow: true,
+      follow: true, //フォローボタンの状態
     });
 
+    // フォローしたユーザーのフォロワー数を増やす処理(更新)
     batch.update(db.doc(myUserRef.path).collection("followLists").doc(id), {
-      followerCount:firebase.firestore.FieldValue.increment(+1)
-    })
+      followerCount: firebase.firestore.FieldValue.increment(+1),
+    });
     await batch.commit();
   };
-
-  
 
   //  フォロー解除した時の処理
   const onClickUnFollow = async (id) => {
@@ -165,10 +161,12 @@ const AnotherProfile = () => {
     batch.delete(
       db.doc(anotherUserRef.path).collection("followerLists").doc(uid)
     );
+    // フォローしていたユーザーのフォロワー数を減らす
     batch.update(db.doc(anotherUserRef.path), {
       followerCount: firebase.firestore.FieldValue.increment(-1),
     });
 
+    //自分のフォローリストから、指定したユーザーを削除する
     batch.delete(db.doc(myUserRef.path).collection("followLists").doc(id));
 
     await batch.commit();
@@ -185,19 +183,21 @@ const AnotherProfile = () => {
           id: profile,
           img: doc.data().img,
           name: doc.data().name,
-          introduce:doc.data().introduce,
+          introduce: doc.data().introduce,
           followerCount: doc.data().followerCount,
         });
         setAnotherUser(newItem);
       });
   };
 
-
+  // 初回レンダリング時に他ユーザーの情報+フォローボタンの状態を取得する。
   useEffect(() => {
     if (profile) {
+      // 他ユーザーの情報を取得する関数
       getAnotherUser();
     }
     if (profile && uid) {
+      // 他ユーザーをフォローしているかでフォローボタンの状態を変える
       getFollow();
     }
   }, [profile, uid]);
@@ -221,8 +221,8 @@ const AnotherProfile = () => {
                 width: 120,
                 padding: 5,
                 borderRadius: 20,
-               
-                position:"absolute",
+
+                position: "absolute",
               }}
             >
               <AccountBoxIcon />

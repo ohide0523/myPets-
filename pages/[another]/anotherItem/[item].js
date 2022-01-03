@@ -20,6 +20,7 @@ import Button from "@material-ui/core/Button";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 
+// material-uiのCSS
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -122,12 +123,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// ワンちゃんの詳細画面
 const Item = () => {
+  // いいねの状態
   const [like, setLike] = useState(false);
+  // 他ユーザーのワンちゃんの情報
   const [anotherItem, setAnotherItem] = useState([]);
+  // 他ユーザー(飼い主)の情報
   const [anotherUser, setAnotherUser] = useState([]);
+
   const router = useRouter();
+  // URLにanother=飼い主のid情報　item＝ワンちゃんの情報　をそれぞれ埋め込んだ
   const { another, item } = router.query;
+  // 自分のユーザーのid番号
   const { uid } = useContext(Context);
   const classes = useStyles();
 

@@ -30,20 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/menu/createItem/createItem": [
+    "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/menu/createItem/createItem.js"
-    ],
-    "/menu/myPage/profile": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/menu/myPage/profile.js"
-    ],
-    "/myTool/allItems/allMyItems": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/myTool/allItems/allMyItems.js"
+      "static/chunks/pages/login.js"
     ]
   },
   "ampFirstPages": []
