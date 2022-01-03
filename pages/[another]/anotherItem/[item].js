@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
     width: 110,
     height: 110,
     marginRight: 20,
+    cursor:"pointer",
     [theme.breakpoints.up("md")]: {
       width: 130,
       height: 130,

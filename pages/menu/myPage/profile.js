@@ -141,6 +141,7 @@ const useStyles = makeStyles((theme) => ({
     height: 250,
     margin: "auto",
     marginBottom: 40,
+    corsor:"pointer",
     [theme.breakpoints.up("md")]: {
       width: 300,
       height: 300,
@@ -152,6 +153,7 @@ const useStyles = makeStyles((theme) => ({
     height: 90,
     margin: "auto",
     marginBottom: "60px",
+    cursor:"pointer",
     [theme.breakpoints.up("md")]: {
       width: 180,
       height: 180,
@@ -226,7 +228,7 @@ const Profile = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
-  
+
   useEffect(() => {
     if (uid) {
       getMyUser();
